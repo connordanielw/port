@@ -1,63 +1,24 @@
-/* App.scss */
-
-/* ========== PAGE WRAPPER ========== */
-.home-page {
-  padding-top: 3rem;
-  min-height: 100vh;
-  background: var(--bg-color);
-  color: var(--text-color);
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-  animation: disney_fade_slide 0.8s ease-out forwards;
-}
-
-/* ========== PAGE CONTENT WRAPPER ========== */
-.home-content {
-  max-width: 1000px;
-  min-width: 760px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-/* ========== HERO & SECTION TITLES ========== */
-.hero-title,
-.section-title {
-  font-size: 3rem;
-  font-weight: 400;
-  background-image: linear-gradient(
-    100deg,
-    var(--text-color) 0%,
-    #ff3cac 35%,
-    #784ba0 50%,
-    #2b86c5 65%,
-    var(--text-color) 100%
-  );
-  background-size: 300% auto;
-  background-position: -150% center;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  opacity: 0;
-  transform: translateY(-20px);
-  animation:
-    shiny-text-wipe 2s ease-out forwards,
-    fade-slide-down 1.2s ease forwards;
+/* ===============================
+   GLOBAL VARIABLES & KEYFRAMES
+=============================== */
+:root {
+  --bg-color: #f0f2f5;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text-color: #333;
+  --muted-text-color: #666;
+  --primary-accent: #ff3cac;
+  --secondary-accent: #784ba0;
+  --link-color: #2b86c5;
 }
 
 @keyframes shiny-text-wipe {
-  0% {
+  from {
     background-position: -150% center;
   }
-  100% {
+  to {
     background-position: 100% center;
   }
 }
-
 @keyframes fade-slide-down {
   from {
     opacity: 0;
@@ -68,18 +29,6 @@
     transform: translateY(0);
   }
 }
-
-/* ========== PARAGRAPHS & LIST ITEMS ========== */
-.home-page p,
-.resume-section {
-  font-size: 1.2rem;
-  text-align: left;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: smooth-slide-up 1.2s ease-out forwards;
-  animation-delay: 0.3s;
-}
-
 @keyframes smooth-slide-up {
   from {
     opacity: 0;
@@ -91,111 +40,212 @@
   }
 }
 
-/* ========== PROJECTS SECTION ========== */
-.projects-section {
-  width: 100%;
-  margin-top: 0;
-  padding-top: 0;
+/* ===============================
+   PAGE WRAPPER & CONTENT
+=============================== */
+.home-page {
+  padding-top: 3rem;
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition:
+    background 0.3s,
+    color 0.3s;
 }
 
+.home-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ===============================
+   SECTION & HERO TITLES
+=============================== */
+.hero-title,
 .section-title {
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.1;
+  background-image: linear-gradient(
+    100deg,
+    var(--text-color) 0%,
+    var(--primary-accent) 35%,
+    var(--secondary-accent) 50%,
+    var(--link-color) 65%,
+    var(--text-color) 100%
+  );
+  background-size: 300% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation:
+    shiny-text-wipe 2s ease-out forwards,
+    fade-slide-down 1.2s ease forwards;
+}
+.section-title {
+  margin-bottom: 1.5rem;
 }
 
-/* responsive grid */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-/* project card as link */
-.project-card {
-  display: block;
-  background: var(--bg-color-alt, #fff);
-  border-radius: 4px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-/* slide-up animation */
-.animate-slide-up {
+/* ===============================
+   BODY TEXT & ANIMATION
+=============================== */
+.home-page p,
+.resume-section {
+  font-size: 1.2rem;
   opacity: 0;
   transform: translateY(20px);
   animation: smooth-slide-up 1.2s ease-out forwards;
   animation-delay: 0.3s;
 }
-
-/* hover lift */
-.project-card:hover {
-  transform: translateY(-4px);
+/* ===============  PROJECT GRID  =============== */
+.project-grid {
+  display: grid;
+  gap: 2rem; // space between cards
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  padding: 1rem;
 }
 
-/* card header */
+/* ===============  PROJECT CARD  =============== */
+.project-card {
+  position: relative;
+  display: flex; // let us push footer buttons down
+  flex-direction: column;
+  min-height: 230px; // consistent card height
+  background: #fff;
+  border-radius: 6px;
+  padding: 1.75rem; // a touch more breathing room
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  animation: smooth-slide-up 0.8s ease-out forwards;
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  }
+
+  /* gradient bar */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0; // shorthand for top/right/bottom/left
+    width: 6px;
+    border-radius: 6px 0 0 6px;
+    background: linear-gradient(to bottom, var(--primary-accent), var(--secondary-accent));
+  }
+}
+
+/* HEADER (title + date) */
 .project-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.75rem;
+  align-items: flex-start; // keep date top-aligned
+  margin-bottom: 0.75rem; // tighter spacing
 }
 
-/* title, date, tech */
 .project-title {
+  flex: 1;
   font-size: 1.4rem;
-  font-weight: 600;
-  margin: 0;
+  font-weight: 700;
+  line-height: 1.25; // prevents tall gaps on wraps
+  margin-right: 0.75rem; // room before the date
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
 }
 
 .project-date {
+  white-space: nowrap;
   font-size: 0.9rem;
   color: var(--muted-text-color);
 }
 
+/* TECH LINE */
 .project-tech {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-style: italic;
   color: var(--muted-text-color);
   margin-bottom: 1.25rem;
-  flex-grow: 0;
 }
 
-/* links */
+/* BUTTON ROW sits at the BOTTOM */
 .project-links {
-  margin-top: auto;
+  margin-top: auto; // pushes buttons down
   display: flex;
-  gap: 0.5rem;
-  font-size: 0.95rem;
+  gap: 1rem;
 }
 
-/* inline Site label */
-.project-link-label {
-  color: var(--link-color);
+.project-link-button {
+  flex: 1 1 auto; // equal-width buttons
+  max-width: 120px;
+  padding: 0.55rem 1rem;
+  background: var(--link-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s;
+  text-align: center;
+
+  &:hover {
+    background: var(--secondary-accent);
+  }
+
+  /* shine effect */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      var(--primary-accent) 45%,
+      var(--secondary-accent) 50%,
+      var(--link-color) 55%,
+      transparent 70%
+    );
+    opacity: 0;
+  }
+  &:hover::before {
+    animation: shiny-text-wipe 1.2s ease-out forwards;
+    opacity: 1;
+  }
 }
 
-/* nested Repo link */
-.project-link {
-  color: var(--link-color);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.project-link:hover {
-  text-decoration: underline;
+
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(40px);                      // more vertical lift
+  animation: smooth-slide-up 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+  animation-fill-mode: forwards;
+  visibility: hidden;
 }
 
-/* ========== RESUME LINK ========== */
-.resume-section {
-  margin-top: 2.5rem;
-}
 
-.resume-link {
-  color: var(--link-color);
-  text-decoration: none;
-  font-size: 1.2rem;
-}
-.resume-link:hover {
-  text-decoration: underline;
+@keyframes smooth-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
 }

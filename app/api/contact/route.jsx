@@ -1,20 +1,35 @@
-
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(request) {
   try {
     const { fullName, email, phone, message } = await request.json();
 
-    //  Possible to:
-    //  Relay the data to an email service
-    //  Write it to a Google Sheet
-    //  Push it into Supabase
+    const transporter = nodemailer.createTransport({
+      service: 'gmail', 
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
 
-    console.log('New contact submission:', { fullName, email, phone, message });
+    const mailOptions = {
+      from: email,
+      to: process.env.EMAIL_RECEIVER,
+      subject: `New Contact Form Submission from ${fullName}`,
+      text: `
+        Name: ${fullName}
+        Email: ${email}
+        Phone: ${phone}
+        Message: ${message}
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
-    console.error(err);
+    console.error('Email error:', err);
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
 }

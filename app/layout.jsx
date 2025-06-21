@@ -1,6 +1,9 @@
 
 import Navigation from '../app/components/Navigation.jsx';
 import Footer from '../app/components/Footer.jsx';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 export const metadata = {
@@ -13,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head />
       <body data-theme="light">
+        <ToastContainer />
         <Navigation />
         <main>
           {children}

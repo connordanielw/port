@@ -5,41 +5,44 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
-  const pathname = usePathname();
+  const pathname  = usePathname();
   const [open, setOpen] = useState(false);
-  const menuRef = useRef(null);
-  const burgerRef = useRef(null);
-  const timerRef = useRef(null);
 
-  // Close on outside click/tap
+  const menuRef   = useRef(null);   // the full-screen overlay
+  const burgerRef = useRef(null);   // ☰ button
+  const timerRef  = useRef(null);   // 2-second auto-close
+
+  /* ---------- Close on outside click OR ⎋ key ---------- */
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (
-        open &&
-        menuRef.current &&
-        !menuRef.current.contains(e.target) &&
-        burgerRef.current &&
-        !burgerRef.current.contains(e.target)
-      ) {
-        setOpen(false);
-      }
+    const onClickOutside = (e) => {
+      if (!open) return;
+
+      const clickInMenu   = menuRef.current?.contains(e.target);
+      const clickInBurger = burgerRef.current?.contains(e.target);
+
+      if (!clickInMenu && !clickInBurger) setOpen(false);
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+
+    document.addEventListener('mousedown', onClickOutside);
+    document.addEventListener('touchstart', onClickOutside);
+    document.addEventListener('keydown', onKeyDown);
+
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('mousedown', onClickOutside);
+      document.removeEventListener('touchstart', onClickOutside);
+      document.removeEventListener('keydown', onKeyDown);
     };
   }, [open]);
 
-
+  /* ---------- Auto-close after 2 s of inactivity ---------- */
   useEffect(() => {
-    if (open) {
-      timerRef.current = setTimeout(() => setOpen(false), 2000);
-    }
+    if (open) timerRef.current = setTimeout(() => setOpen(false), 2000);
     return () => clearTimeout(timerRef.current);
   }, [open]);
-
 
   const resetTimer = () => {
     clearTimeout(timerRef.current);
@@ -47,17 +50,17 @@ export default function Navigation() {
   };
 
   const links = [
-    { href: '/',       label: 'Home' },
- 
-    { href: '/contact',   label: 'Contact' },
+    { href: '/',        label: 'Home'    },
+    { href: '/contact', label: 'Contact' },
   ];
 
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link href="/" className="nav-logo">Connor D. Wotkowicz</Link>
+        <Link href="/" className="nav-logo">Connor&nbsp;D.&nbsp;Wotkowicz</Link>
 
-        <div className="nav-links desktop-only">
+        {/* Desktop links */}
+        <div className="nav-links">
           {links.map(({ href, label }) => (
             <Link
               key={href}
@@ -69,9 +72,10 @@ export default function Navigation() {
           ))}
         </div>
 
+        {/* ☰ hamburger */}
         <button
           ref={burgerRef}
-          className="hamburger mobile-only"
+          className="hamburger"
           onClick={() => setOpen(o => !o)}
           aria-label="Toggle navigation menu"
         >
@@ -79,34 +83,28 @@ export default function Navigation() {
         </button>
       </div>
 
-      {open && (
-        <div
-          ref={menuRef}
-          className="mobile-menu"
-          onMouseMove={resetTimer}
-          onTouchStart={resetTimer}
-          onClick={e => {
-          
-            if (e.target === menuRef.current) {
-              setOpen(false);
-            } else {
-          
-              resetTimer();
-            }
-          }}
-        >
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="mobile-menu-item"
-              onClick={() => setOpen(false)}
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
-      )}
+      {/* Mobile menu overlay (always rendered so opacity/transform can animate) */}
+      <div
+        ref={menuRef}
+        className={`mobile-menu${open ? ' open' : ''}`}
+        onMouseMove={resetTimer}
+        onTouchStart={resetTimer}
+        onClick={(e) => {
+          // close when clicking the backdrop itself (not a link)
+          if (e.target === menuRef.current) setOpen(false);
+        }}
+      >
+        {links.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            className="mobile-menu-item"
+            onClick={() => setOpen(false)}
+          >
+            {label}
+          </Link>
+        ))}
+      </div>
     </nav>
   );
 }

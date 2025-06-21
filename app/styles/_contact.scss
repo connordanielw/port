@@ -1,0 +1,179 @@
+
+.contact-main {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  background: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+
+  /* ===============================
+     CONTACT CONTAINER
+  =============================== */
+  .contact {
+    margin-right: 20px;
+    height: 100%;
+    margin-left: 20px;
+    margin-top: 10rem;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--card-bg);
+    border-radius: 6px;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* equalize left/right padding here */
+    padding-top: 40px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 80px;
+    /* bump max-width so it’s a bit wider */
+    width: 600px;
+    max-width: 90%;
+    transform: translateY(40px);
+    animation: fade_slide 0.6s ease-out 0.2s forwards;
+    transition:
+      all 0.3s ease-in-out,
+      color 0.3s ease,
+      background-color 0.3s ease;
+
+    /* SECTION & HEADER */
+    section {
+      width: 100%;
+    }
+
+    .contact-instr {
+      padding-bottom: 12px;
+
+      h4 {
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        transition: color 0.3s ease;
+      }
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+
+    /* FORM */
+    .contact-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* INPUTS & TEXTAREA */
+    input,
+    textarea {
+      width: 94%;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.092);
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--text-color);
+      margin-bottom: 16px;
+      outline: none;
+      transition:
+        border 0.2s ease,
+        background 0.2s ease,
+        color 0.3s ease;
+
+      &::placeholder {
+        color: var(--text-color);
+        opacity: 0.6;
+        transition: color 0.3s ease;
+      }
+
+      &:focus {
+        border-color: var(--primary-accent);
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    textarea {
+      height: 10rem;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      margin-bottom: 1rem;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+
+    /* SUBMIT BUTTON */
+    button {
+      width: 100%;
+      max-width: 600px;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 4px;
+      background: #000;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 400;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition:
+        background 1s ease,
+        color 0.3s ease;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 300%;
+        height: 100%;
+        background: linear-gradient(120deg, transparent 30%, #ff3cac 45%, #784ba0 50%, #2b86c5 55%, transparent 70%);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &:hover::before {
+        animation: shiny-wipe 1.2s ease-out forwards;
+        opacity: 1;
+      }
+
+      &:disabled {
+        background-color: #e0e0e0;
+        color: #aaa;
+        cursor: not-allowed;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/* ===============================
+   ANIMATION KEYFRAMES
+=============================== */
+@keyframes fade_slide {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

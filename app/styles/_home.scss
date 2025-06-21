@@ -1,0 +1,231 @@
+/* App.scss */
+
+/* ===============================
+   GLOBAL VARIABLES & KEYFRAMES
+=============================== */
+:root {
+  --bg-color: #f0f2f5;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text-color: #333;
+  --muted-text-color: #666;
+  --primary-accent: #ff3cac;
+  --secondary-accent: #784ba0;
+  --link-color: #2b86c5;
+}
+
+@keyframes shiny-text-wipe {
+  from { background-position: -150% center; }
+  to   { background-position: 100% center; }
+}
+@keyframes fade-slide-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes smooth-slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ===============================
+   PAGE WRAPPER & CONTENT
+=============================== */
+.home-page {
+  padding-top: 3rem;
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.home-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ===============================
+   SECTION & HERO TITLES
+=============================== */
+.hero-title,
+.section-title {
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.1;
+  background-image: linear-gradient(
+    100deg,
+    var(--text-color) 0%,
+    var(--primary-accent) 35%,
+    var(--secondary-accent) 50%,
+    var(--link-color) 65%,
+    var(--text-color) 100%
+  );
+  background-size: 300% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation:
+    shiny-text-wipe 2s ease-out forwards,
+    fade-slide-down 1.2s ease forwards;
+}
+.section-title {
+  margin-bottom: 1.5rem;
+}
+
+/* ===============================
+   BODY TEXT & ANIMATION
+=============================== */
+.home-page p,
+.resume-section {
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: smooth-slide-up 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* ===============================
+   PROJECT GRID & CARD
+=============================== */
+.project-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.project-card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 6px;
+    background: linear-gradient(
+      to bottom,
+      var(--primary-accent) 0%,
+      var(--secondary-accent) 100%
+    );
+  }
+}
+
+/* animate cards on load */
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: smooth-slide-up 1.2s ease-out forwards;
+}
+
+/* ===============================
+   CARD HEADER — TITLE & DATE
+=============================== */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: rgba(255,255,255,0.6);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.project-date {
+  font-size: 0.9rem;
+  color: var(--muted-text-color);
+  white-space: nowrap;
+}
+
+/* ===============================
+   TECH LINE
+=============================== */
+.project-tech {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted-text-color);
+  margin-bottom: 1.5rem;
+}
+
+/* ===============================
+   LINKS ROW
+=============================== */
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* pill-style link buttons */
+.project-links a,
+.project-links .btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--link-color);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 4px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, color 0.3s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -150%;
+    width: 300%; height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      var(--primary-accent) 45%,
+      var(--secondary-accent) 50%,
+      var(--link-color) 55%,
+      transparent 70%
+    );
+    pointer-events: none;
+    opacity: 0;
+  }
+  &:hover::before {
+    animation: shiny-text-wipe 1.2s ease-out forwards;
+    opacity: 1;
+  }
+  &:hover {
+    background: var(--link-color);
+  }
+}
+
+/* ===============================
+   RESUME LINK
+=============================== */
+.resume-section {
+  margin-top: 2.5rem;
+}
+
+.resume-link {
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,6 +1,6 @@
-// src/pages/index.jsx
+
 'use client';
-import '../styles/App.scss';
+import '../app/styles/App.scss'
 
 export default function HomePage() {
   const projects = [

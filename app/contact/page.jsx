@@ -118,6 +118,7 @@ useEffect(() => {
             />
 
             <textarea
+              type ="text"
               placeholder="What would you like to know?"
               value={message}
               maxLength={255}

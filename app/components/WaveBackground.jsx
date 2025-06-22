@@ -19,7 +19,7 @@ export default function WaveBackground() {
       const troughA = 'M0,120 C480,40 960,200 1440,120 L1440,160 L0,160 Z';
       const troughB = 'M0,120 C480,200 960,40 1440,120 L1440,160 L0,160 Z';
 
-      // Animate top wave morph — seamless loop using timeline
+      
       const topWave = anime.timeline({ loop: true, easing: 'easeInOutSine' });
       topWave
         .add({
@@ -38,7 +38,7 @@ export default function WaveBackground() {
           duration: 1750,
         });
 
-      // Animate lower wave morph — same loop, offset start for contrast
+      
       const lowerWave = anime.timeline({ loop: true, easing: 'easeInOutSine', delay: 875 });
       lowerWave
         .add({
@@ -57,7 +57,6 @@ export default function WaveBackground() {
           duration: 1750,
         });
 
-      // Smooth continuous horizontal drift
       anime({
         targets: driftRef.current,
         keyframes: [

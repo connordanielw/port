@@ -8,11 +8,10 @@ export default function Navigation() {
   const pathname  = usePathname();
   const [open, setOpen] = useState(false);
 
-  const menuRef   = useRef(null);   // the full-screen overlay
-  const burgerRef = useRef(null);   // ☰ button
-  const timerRef  = useRef(null);   // 2-second auto-close
+  const menuRef   = useRef(null);   
+  const burgerRef = useRef(null);  
+  const timerRef  = useRef(null);   
 
-  /* ---------- Close on outside click OR ⎋ key ---------- */
   useEffect(() => {
     const onClickOutside = (e) => {
       if (!open) return;
@@ -38,7 +37,6 @@ export default function Navigation() {
     };
   }, [open]);
 
-  /* ---------- Auto-close after 2 s of inactivity ---------- */
   useEffect(() => {
     if (open) timerRef.current = setTimeout(() => setOpen(false), 2000);
     return () => clearTimeout(timerRef.current);
@@ -58,8 +56,6 @@ export default function Navigation() {
     <nav className="navbar">
       <div className="nav-container">
         <Link href="/" className="nav-logo">Connor&nbsp;D.&nbsp;Wotkowicz</Link>
-
-        {/* Desktop links */}
         <div className="nav-links">
           {links.map(({ href, label }) => (
             <Link
@@ -71,8 +67,6 @@ export default function Navigation() {
             </Link>
           ))}
         </div>
-
-        {/* ☰ hamburger */}
         <button
           ref={burgerRef}
           className="hamburger"
@@ -83,7 +77,7 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile menu overlay (always rendered so opacity/transform can animate) */}
+
       <div
         ref={menuRef}
         className={`mobile-menu${open ? ' open' : ''}`}

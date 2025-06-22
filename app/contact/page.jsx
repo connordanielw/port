@@ -21,14 +21,14 @@ export default function ContactPage() {
     e.preventDefault();
 
     try {
-      // send the form to your API route (optional but recommended)
+     
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fullName, email, phone, message }),
       });
 
-      // show success toast, then redirect when it closes
+     
       toast.success('We have your message and will be in touch soon.', {
         position: 'top-center',
         autoClose: 3000,
@@ -36,10 +36,10 @@ export default function ContactPage() {
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
-        onClose: () => router.push('/'),  // 🔄 redirect after toast
+        onClose: () => router.push('/'),  
       });
 
-      // clear the form
+      
       setFullName('');
       setEmail('');
       setPhone('');
@@ -101,7 +101,7 @@ export default function ContactPage() {
         </section>
       </div>
 
-      {/* Toast notifications */}
+     
       <ToastContainer theme="colored" />
     </div>
   );

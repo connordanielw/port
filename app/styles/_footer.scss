@@ -1,6 +1,4 @@
-/* App.scss */
 
-/* ========== FOOTER ========== */
 .app-footer {
   background: var(--bg-color);
   color: var(--text-color);
@@ -13,10 +11,12 @@
   align-items: center;
 
   .footer-inner {
-    max-width: 1000px; /* Adjusted width */
+    max-width: 1000px; 
     margin: 0 auto;
-    padding: 0 2rem; /* Horizontal padding */
-    text-align: center; /* Center text content */
+    padding: 0 2rem; 
+    text-align: center;
+    z-index: 5;
+    color: dark;
   }
 
   .footer-top {
@@ -25,11 +25,11 @@
     gap: 2rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--border-color);
-    justify-items: center; /* Center the content in grid */
+    justify-items: center; 
   }
 
   .footer-section {
-    text-align: center; /* Center section content */
+    text-align: center; 
 
     h4 {
       font-weight: 600;
@@ -42,7 +42,7 @@
       justify-content: center;
       flex-direction: column;
       gap: 0.5rem;
-      align-items: center; /* Center link items */
+      align-items: center; 
 
       a {
         text-decoration: none;
@@ -51,7 +51,7 @@
         font-weight: 400;
 
         &:hover {
-          color: var(--primary-accent);
+      
           text-decoration: underline;
         }
       }

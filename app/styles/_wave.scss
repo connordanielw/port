@@ -1,0 +1,50 @@
+
+.wave-bg {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 24vh;
+    overflow: hidden;
+    // pointer-events: none;
+    z-index: 2;
+}
+
+
+.wave-svg {
+    width: 200%; 
+    height: 100%;
+}
+
+.bubble-layer {
+    position: absolute;
+    inset: 0;
+}
+
+.pixel-bubble {
+    position: absolute;
+    bottom: -10px;
+    left: var(--left);
+    width: var(--size);
+    height: var(--size);
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 1px;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+    animation: bubble-rise var(--duration) ease-in infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes bubble-rise {
+    0% {
+        transform: translateX(0) translateY(0) scale(1);
+        opacity: 0.7;
+    }
+    70% {
+        transform: translateX(calc(var(--drift) / 2)) translateY(-70vh) scale(1.1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateX(var(--drift)) translateY(-90vh) scale(1.25);
+        opacity: 0;
+    }
+}

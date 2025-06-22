@@ -55,7 +55,7 @@ export default function HomePage() {
     {
       title: 'SoundPiece: Grand Line Edition',
       date: 'June 2025',
-      tech: 'Next.js 14 • React • SCSS Modules • Context API • Express.js • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Supabase Storage • Axios • Vercel • AWS EC2',
+      tech: 'Next.js 14 • React • SCSS Modules • Context API • Express.js • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Supabase Storage • Axios • Vercel • AWS EC2 • React Testing Library • Supertest • Jest • Tone.js',
       site: 'https://sound-piece-grand-line.vercel.app',
       repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line'
     },

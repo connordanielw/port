@@ -1,36 +1,53 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function ContactPage() {
   const [fullName, setFullName] = useState('');
-  const [email, setEmail]     = useState('');
-  const [phone, setPhone]     = useState('');
-  const [message, setMessage] = useState('');
+  const [email, setEmail]       = useState('');
+  const [phone, setPhone]       = useState('');
+  const [message, setMessage]   = useState('');
   const nameRef = useRef(null);
+  const router  = useRouter();
 
   useEffect(() => {
     nameRef.current?.focus();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    toast.success("We have your message and will be in touch soon.", {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
+    try {
+      // send the form to your API route (optional but recommended)
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fullName, email, phone, message }),
+      });
 
-    setFullName('');
-    setEmail('');
-    setPhone('');
-    setMessage('');
+      // show success toast, then redirect when it closes
+      toast.success('We have your message and will be in touch soon.', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        onClose: () => router.push('/'),  // 🔄 redirect after toast
+      });
+
+      // clear the form
+      setFullName('');
+      setEmail('');
+      setPhone('');
+      setMessage('');
+    } catch (err) {
+      toast.error('Oops! Message failed. Please try again.');
+      console.error(err);
+    }
   };
 
   return (
@@ -71,7 +88,9 @@ export default function ContactPage() {
               placeholder="What would you like to know?"
               value={message}
               maxLength={255}
-              onChange={(e) => e.target.value.length <= 255 && setMessage(e.target.value)}
+              onChange={(e) =>
+                e.target.value.length <= 255 && setMessage(e.target.value)
+              }
               required
             />
 
@@ -82,7 +101,8 @@ export default function ContactPage() {
         </section>
       </div>
 
-      {/* <ToastContainer /> */}
+      {/* Toast notifications */}
+      <ToastContainer theme="colored" />
     </div>
   );
 }

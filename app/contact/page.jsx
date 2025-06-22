@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import WaveBackground from '../../app/components/WaveBackground';
 
 export default function ContactPage() {
   const [fullName, setFullName] = useState('');
@@ -12,6 +13,37 @@ export default function ContactPage() {
   const [message, setMessage]   = useState('');
   const nameRef = useRef(null);
   const router  = useRouter();
+
+
+useEffect(() => {
+  import('animejs').then((mod) => {
+    const anime = mod.default || mod;
+    if (!anime?.timeline || !heroRef.current || !ctaRef.current || !featuresRef.current) return;
+
+    const heroLines    = heroRef.current.querySelectorAll('.hero-line');
+    const featureItems = featuresRef.current.querySelectorAll('.feature-item');
+
+    const tl = anime.timeline({ easing: 'easeOutExpo', duration: 800 });
+
+    tl.add({
+      targets: heroLines,
+      translateY: [50, 0],
+      opacity:    [0, 1],
+      delay:      anime.stagger(60),
+    })
+      .add({
+        targets: ctaRef.current,
+        scale:   [0.8, 1],
+        opacity: [0, 1],
+      }, '-=400')
+      .add({
+        targets: featureItems,
+        translateY: [60, 0],
+        opacity:    [0, 1],
+        delay:      anime.stagger(120),
+      }, '-=200');
+  });
+}, []);
 
   useEffect(() => {
     nameRef.current?.focus();
@@ -52,6 +84,7 @@ export default function ContactPage() {
 
   return (
     <div className="contact-main">
+        <WaveBackground /> 
       <div className="contact">
         <section>
           <h3>Contact Us</h3>

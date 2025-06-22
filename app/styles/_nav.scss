@@ -2,7 +2,7 @@
 
 /* NAVBAR STRUCTURE */
 .navbar {
-    background: var(--bg-color);
+
     height: 60px;
     position: sticky;
     top: 0;
@@ -12,9 +12,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-     animation:
-    shiny-text-wipe 2s ease-out forwards,
-    fade-slide-down 1.2s ease forwards;
+    animation:
+        shiny-text-wipe 2s ease-out forwards,
+        fade-slide-down 1.2s ease forwards;
 }
 
 .nav-container {

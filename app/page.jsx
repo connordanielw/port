@@ -22,7 +22,7 @@ const renderBadges = (techStr) =>
 
 export default function HomePage() {
   const router = useRouter();
-  const heroRef = useRef(null);
+  const heroRef= useRef(null);
   const ctaRef = useRef(null);
   const featuresRef = useRef(null);
 

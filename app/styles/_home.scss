@@ -44,9 +44,9 @@
    PAGE WRAPPER & CONTENT
 =============================== */
 .home-page {
-  padding-top: 3rem;
+  padding-top: 0rem;
   min-height: 100vh;
-  background: var(--bg-color);
+  background: var(--card-bg);
   color: var(--text-color);
   transition:
     background 0.3s,
@@ -84,9 +84,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* ===============================
-   BODY TEXT & ANIMATION
-=============================== */
 .home-page p,
 .resume-section {
   font-size: 1.2rem;
@@ -95,23 +92,22 @@
   animation: smooth-slide-up 1.2s ease-out forwards;
   animation-delay: 0.3s;
 }
-/* ===============  PROJECT GRID  =============== */
+
 .project-grid {
   display: grid;
-  gap: 2rem; // space between cards
+  gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   padding: 1rem;
 }
 
-/* ===============  PROJECT CARD  =============== */
 .project-card {
   position: relative;
-  display: flex; // let us push footer buttons down
+  display: flex;
   flex-direction: column;
-  min-height: 230px; // consistent card height
+  min-height: 230px;
   background: #fff;
   border-radius: 6px;
-  padding: 1.75rem; // a touch more breathing room
+  padding: 1.75rem;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   animation: smooth-slide-up 0.8s ease-out forwards;
 
@@ -124,31 +120,29 @@
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
   }
 
-  /* gradient bar */
   &::before {
     content: "";
     position: absolute;
-    inset: 0 auto 0 0; // shorthand for top/right/bottom/left
+    inset: 0 auto 0 0;
     width: 6px;
     border-radius: 6px 0 0 6px;
     background: linear-gradient(to bottom, var(--primary-accent), var(--secondary-accent));
   }
 }
 
-/* HEADER (title + date) */
 .project-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; // keep date top-aligned
-  margin-bottom: 0.75rem; // tighter spacing
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
 }
 
 .project-title {
   flex: 1;
   font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1.25; // prevents tall gaps on wraps
-  margin-right: 0.75rem; // room before the date
+  font-weight: 500;
+  line-height: 1.25;
+  margin-right: 0.75rem;
   background: rgba(255, 255, 255, 0.6);
   padding: 0.15rem 0.4rem;
   border-radius: 4px;
@@ -160,7 +154,6 @@
   color: var(--muted-text-color);
 }
 
-/* TECH LINE */
 .project-tech {
   font-size: 0.95rem;
   font-style: italic;
@@ -298,3 +291,5 @@
     padding-top: 8rem;
   }
 }
+
+

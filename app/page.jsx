@@ -1,7 +1,7 @@
 'use client';
 import '../app/styles/App.scss';
+import HeroVisual from '../app/components/Hero';
 
-// Map tech keywords → Shields.io badge URLs
 const badgeMap = {
   'React': 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
   'React Router': 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white',
@@ -73,12 +73,17 @@ export default function HomePage() {
       <main className="home-content">
 
         <section className="hero-section">
-          <h1 className="hero-title animate-on-load">
-            Connor D. Wotkowicz
-          </h1>
-          <p className="hero-description animate-slide-up">
-            Full-Stack Developer | Brooklyn, NY
-          </p>
+              <div className="hero-visual">
+            <HeroVisual />
+          </div>
+          <div className="hero-text">
+            <h1 className="hero-title animate-on-load">
+              Connor D. Wotkowicz
+            </h1>
+            <p className="hero-description animate-slide-up">
+              Full-Stack Developer | Brooklyn, NY
+            </p>
+          </div>
         </section>
 
         <section className="projects-section">

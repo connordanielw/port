@@ -12,6 +12,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+     animation:
+    shiny-text-wipe 2s ease-out forwards,
+    fade-slide-down 1.2s ease forwards;
 }
 
 .nav-container {

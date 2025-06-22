@@ -15,7 +15,7 @@ export default function Footer() {
             Contact
           </Link>
         </div>
-        <p className="footer-text">© {new Date().getFullYear()} Connor D. Wotkowicz. All rights reserved.</p>
+        <p className="footer-text">© {new Date().getFullYear()} Connor D Wotkowicz </p>
       </div>
     </footer>
   );

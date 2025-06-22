@@ -43,30 +43,50 @@ export default function ProjectsPage() {
     }
   ];
 
-  return (
-    <div className="home-page">
-      <main className="home-content">
-        <h1 className="section-title">Portfolio</h1>
-        {projects.map((p) => (
-          <div key={p.title} className="project-bar">
-            <div className="project-bar-header">
-              <h3 className="project-bar-title">{p.title}</h3>
-              <span className="project-bar-date">{p.date}</span>
-            </div>
-            <a href={p.url} target="_blank" rel="noopener" className="project-bar-url">
-              {p.url}
-            </a>
-            <a href={p.repo} target="_blank" rel="noopener" className="project-bar-repo">
-              {p.repo}
-            </a>
-            <ul className="project-bar-list">
-              {p.bullets.map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
-            </ul>
+return (
+  <div className="home-page">
+    <main className="home-content">
+      <h1 className="section-title">Portfolio</h1>
+
+      {projects.map((p, i) => (
+        <div
+          key={p.title}
+          className="project-bar animate-slide-up"
+          style={{ animationDelay: `${0.4 + i * 0.15}s` }}
+        >
+          <div className="project-bar-header">
+            <h3 className="project-bar-title">{p.title}</h3>
+            <span className="project-bar-date">{p.date}</span>
           </div>
-        ))}
-      </main>
-    </div>
-  );
+
+          <div className="project-bar-links">
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener"
+              className="book-modal-button"
+            >
+              Site
+            </a>
+            <a
+              href={p.repo}
+              target="_blank"
+              rel="noopener"
+              className="book-modal-button"
+            >
+              Repo
+            </a>
+          </div>
+
+          <ul className="project-bar-list">
+            {p.bullets.map((b, idx) => (
+              <li key={idx}>{b}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </main>
+  </div>
+);
 }
+

@@ -1,10 +1,13 @@
 'use client';
+
 import { Canvas, useFrame } from '@react-three/fiber';
 import {
   Sphere,
   MeshDistortMaterial,
-  OrbitControls,
   ContactShadows,
+  Ring,
+  Float,
+  Environment,
 } from '@react-three/drei';
 import { useRef } from 'react';
 import * as THREE from 'three';
@@ -13,31 +16,51 @@ export default function HeroVisual() {
   return (
     <Canvas
       shadows
-      camera={{ position: [0, 0, 3] }}
+      camera={{ position: [0, 0, 3.2] }}
       gl={{ alpha: true, antialias: true }}
     >
-      <ambientLight intensity={0.4} />
+      <ambientLight intensity={0.3} />
       <directionalLight
-        position={[2, 4, 4]}
-        intensity={1.2}
+        position={[5, 5, 5]}
+        intensity={1.5}
         castShadow
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
       />
 
-      <MorphingBlob />
+<Float
+  floatIntensity={0.75}
+  rotationIntensity={1}
+  position={[0, 0.6, 0]}   
+>
+  <MorphingBlob />
+</Float>
+      {/* <Ring
+        args={[1.35, 1.5, 64]}
+        rotation-x={Math.PI / 2}
+        position={[0, -0.2, 0]}
+      >
+        <meshBasicMaterial color="#a8e8ff" transparent opacity={0.15} />
+      </Ring> */}
 
-     
       <ContactShadows
-        position={[0, -1.25, 0]}
-        opacity={0.45}
-        scale={4}
+        position={[0, -1.15, 0]}
+        opacity={0.3}
+        scale={5}
         blur={3}
         far={6}
         color="#000000"
       />
 
-      <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.8} />
+     <Environment
+  files="/hdri/sky.hdr"
+  background={false}
+  resolution={64}
+/>
+
+
+      {/* Auto orbit for motion */}
+      {/* Optionally keep OrbitControls for interaction if needed */}
     </Canvas>
   );
 }
@@ -62,22 +85,29 @@ function MorphingBlob() {
       col = c3.clone().lerp(c1, (phase - 0.66) / 0.34);
     }
 
-    const distort = 0.4 + 0.15 * Math.sin(t * 1.2);
-    const emissiveIntensity = 0.6 + 0.4 * Math.sin(t * 0.9);
+    const distort = 0.5 + 0.25 * Math.sin(t * 1.2);
+    const emissiveIntensity = 0.7 + 0.3 * Math.sin(t * 0.9);
 
     if (mat.current) {
       mat.current.color.copy(col);
       mat.current.emissive.copy(col);
       mat.current.emissiveIntensity = emissiveIntensity;
-      mat.current.metalness = 0.9;
-      mat.current.roughness = 0.05;
+      mat.current.metalness = 0.95;
+      mat.current.roughness = 0.03;
       mat.current.distort = distort;
     }
   });
 
   return (
     <Sphere args={[1.2, 64, 64]} castShadow>
-      <MeshDistortMaterial ref={mat} speed={2} />
+      <MeshDistortMaterial
+        ref={mat}
+        speed={2}
+        distort={0.5}
+        emissive="#ffffff"
+        metalness={0.9}
+        roughness={0.1}
+      />
     </Sphere>
   );
 }

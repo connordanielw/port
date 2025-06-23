@@ -14,6 +14,7 @@ import * as THREE from 'three';
 
 export default function HeroVisual() {
   return (
+    
     <Canvas
       shadows
       camera={{ position: [0, 0, 3.2] }}
@@ -28,13 +29,10 @@ export default function HeroVisual() {
         shadow-mapSize-height={1024}
       />
 
-<Float
-  floatIntensity={0.75}
-  rotationIntensity={1}
-  position={[0, 0.6, 0]}   
->
+<Float floatIntensity={0.75} rotationIntensity={1} position={[0, 0.3, 0]}>
   <MorphingBlob />
 </Float>
+
       {/* <Ring
         args={[1.35, 1.5, 64]}
         rotation-x={Math.PI / 2}
@@ -43,14 +41,15 @@ export default function HeroVisual() {
         <meshBasicMaterial color="#a8e8ff" transparent opacity={0.15} />
       </Ring> */}
 
-      <ContactShadows
-        position={[0, -1.15, 0]}
-        opacity={0.3}
-        scale={5}
-        blur={3}
-        far={6}
-        color="#000000"
-      />
+    <ContactShadows
+  position={[0, -1.4, 0]}   // ⬅️ dropped lower on the Y axis
+  opacity={0.3}
+  scale={5}
+  blur={3}
+  far={6}
+  color="#000000"
+/>
+
 
      <Environment
   files="/hdri/sky.hdr"

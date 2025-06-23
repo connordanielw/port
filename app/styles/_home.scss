@@ -1,6 +1,4 @@
-/* ===============================
-   GLOBAL VARIABLES & KEYFRAMES
-=============================== */
+
 :root {
   --bg-color: #f0f2f5;
   --card-bg: rgba(255, 255, 255, 0.9);
@@ -40,9 +38,7 @@
   }
 }
 
-/* ===============================
-   PAGE WRAPPER & CONTENT
-=============================== */
+
 .home-page {
   padding-top: 0rem;
   min-height: 100vh;
@@ -62,9 +58,7 @@
   gap: 2rem;
 }
 
-/* ===============================
-   SECTION & HERO TITLES
-=============================== */
+
 .hero-title,
 .section-title {
   font-size: 3rem;
@@ -80,6 +74,11 @@
   animation: smooth-slide-up 0.8s ease-out forwards;
   animation-delay: 0.3s;
 }
+
+.hero-title {
+  margin-bottom: 0;
+}
+
 .section-title {
   margin-bottom: 1.5rem;
 }
@@ -91,6 +90,7 @@
   transform: translateY(20px);
   animation: smooth-slide-up 1.2s ease-out forwards;
   animation-delay: 0.3s;
+  padding-top: 0;
 }
 
 .project-grid {
@@ -98,6 +98,7 @@
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   padding: 1rem;
+  z-index: 3;
 }
 
 .project-card {
@@ -108,6 +109,7 @@
   background: #fff;
   border-radius: 6px;
   padding: 1.75rem;
+  z-index: 3;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   animation: smooth-slide-up 0.8s ease-out forwards;
 
@@ -291,5 +293,3 @@
     padding-top: 8rem;
   }
 }
-
-

@@ -9,6 +9,16 @@
     z-index: 1;
 }
 
+.wave-bg,
+.wave-bg * {
+    pointer-events: none;
+}
+
+.bubble-layer,
+.bubble-layer * {
+    pointer-events: none;
+}
+
 .wave-svg {
     width: 200%;
     height: 100%;

@@ -109,7 +109,7 @@
   background: #fff;
   border-radius: 6px;
   padding: 1.75rem;
-  z-index: 3;
+
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   animation: smooth-slide-up 0.8s ease-out forwards;
 
@@ -168,6 +168,7 @@
   margin-top: auto; // pushes buttons down
   display: flex;
   gap: 1rem;
+  z-index: 3;;
 }
 
 .project-link-button {
@@ -185,6 +186,7 @@
   overflow: hidden;
   transition: background 0.25s;
   text-align: center;
+   z-index: 3;;
 
   &:hover {
     background: var(--secondary-accent);

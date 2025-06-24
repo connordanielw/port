@@ -6,6 +6,8 @@ import HeroVisual from '../app/components/Hero';
 import { badgeMap } from '../app/components/BadgeMap.jsx';
 import { useRouter } from 'next/navigation';
 import WaveBackground from '../app/components/WaveBackground';
+import SkillsGrid from '../app/components/SkillsGrid';
+import BeveledIcon from './components/Bevel.jsx';
 
 const renderBadges = (techStr) =>
   techStr
@@ -28,17 +30,19 @@ export default function HomePage() {
 
   const projects = [
     {
-      title: 'DiscogMVP “Most Valuable Producer”',
+      title: 'DiscogMVP',
       date: 'May 2025',
       tech: 'React • React Router • Vite • SCSS Modules • Node.js • Express.js • PostgreSQL • JWT • Stripe • Jest • React Testing Library • Supertest',
       site: 'https://discog-mv-producer.vercel.app',
+      description: 'A full-stack e-commerce platform for vinyl and music lovers — featuring artist bios, wishlists, admin tools, and Stripe-powered checkout.',
       repo: 'https://github.com/connorwotkowicz/DiscogMVProducer'
     },
     {
-      title: 'SoundPiece: Grand Line Edition',
+      title: 'SoundPiece: GLE',
       date: 'June 2025',
       tech: 'Next.js 14 • React • SCSS Modules • Context API • Express.js • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Supabase Storage • Axios • Vercel • AWS EC2 • React Testing Library • Supertest • Jest • Tone.js',
       site: 'https://sound-piece-grand-line.vercel.app',
+      description: 'Prospective creative skill-trading platform for musicians and artists.',
       repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line'
     },
     {
@@ -46,6 +50,7 @@ export default function HomePage() {
       date: 'May – June 2025',
       tech: 'React • Tone.js • Node.js • Express • PostgreSQL • JWT • Next.js • Vite • SCSS • Supabase • Vercel',
       site: 'https://beatseq.vercel.app',
+      description: 'Web-based sequencer',
       repo: 'https://github.com/connorwotkowicz/BeatSeq'
     }
   ];
@@ -95,15 +100,26 @@ useEffect(() => {
               Connor D. Wotkowicz
             </h1>
             <p className="hero-description animate-slide-up">
-              Full-Stack Developer | Brooklyn, NY
+              Software Engineer | New York, NY
             </p>
           </div>
         </section>
 
+
+<div className="section-divider" aria-hidden="true"></div>
+  <SkillsGrid />
+
         <section className="projects-section">
-          <h2 className="section-title animate-on-load">
+          {/* <h2 className="section-title animate-on-load">
             Portfolio
-          </h2>
+          </h2> */}
+          {/* <div className="beveled-icon">
+          <BeveledIcon />
+          </div> */}
+
+
+
+          
           <div className="project-grid">
             {projects.map((p, i) => (
               <div
@@ -117,6 +133,9 @@ useEffect(() => {
                 </div>
                 <div className="project-tech">
                   {renderBadges(p.tech)}
+                </div>
+                <div className="project-description">
+                  {p.description}
                 </div>
                 <div className="project-links">
                   <button

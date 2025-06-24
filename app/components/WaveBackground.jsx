@@ -1,9 +1,13 @@
 'use client';
+
 import { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function WaveBackground() {
   const morphRef = useRef(null);
   const driftRef = useRef(null);
+  const containerRef = useRef(null);
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -13,49 +17,34 @@ export default function WaveBackground() {
       const anime = mod.default || mod;
       if (!morphRef.current || !driftRef.current) return;
 
-      const crestA = 'M0,100 C480,20 960,180 1440,100 L1440,160 L0,160 Z';
-      const crestB = 'M0,100 C480,180 960,20  1440,100 L1440,160 L0,160 Z';
+      // ✨ Slide-up entrance animation only on main page
+      if (pathname === '/') {
+        anime({
+          targets: containerRef.current,
+          translateY: [80, 0],
+          opacity: [0, 1],
+          duration: 1200,
+          easing: 'easeOutExpo',
+        });
+      }
 
+      // Wave morphing animation
+      const crestA = 'M0,100 C480,20 960,180 1440,100 L1440,160 L0,160 Z';
+      const crestB = 'M0,100 C480,180 960,20 1440,100 L1440,160 L0,160 Z';
       const troughA = 'M0,120 C480,40 960,200 1440,120 L1440,160 L0,160 Z';
       const troughB = 'M0,120 C480,200 960,40 1440,120 L1440,160 L0,160 Z';
 
-      
       const topWave = anime.timeline({ loop: true, easing: 'easeInOutSine' });
       topWave
-        .add({
-          targets: morphRef.current,
-          d: [{ value: crestA }],
-          duration: 0,
-        })
-        .add({
-          targets: morphRef.current,
-          d: [{ value: crestB }],
-          duration: 1750,
-        })
-        .add({
-          targets: morphRef.current,
-          d: [{ value: crestA }],
-          duration: 1750,
-        });
+        .add({ targets: morphRef.current, d: [{ value: crestA }], duration: 0 })
+        .add({ targets: morphRef.current, d: [{ value: crestB }], duration: 1750 })
+        .add({ targets: morphRef.current, d: [{ value: crestA }], duration: 1750 });
 
-      
       const lowerWave = anime.timeline({ loop: true, easing: 'easeInOutSine', delay: 875 });
       lowerWave
-        .add({
-          targets: driftRef.current.querySelectorAll('path'),
-          d: [{ value: troughA }],
-          duration: 0,
-        })
-        .add({
-          targets: driftRef.current.querySelectorAll('path'),
-          d: [{ value: troughB }],
-          duration: 1750,
-        })
-        .add({
-          targets: driftRef.current.querySelectorAll('path'),
-          d: [{ value: troughA }],
-          duration: 1750,
-        });
+        .add({ targets: driftRef.current.querySelectorAll('path'), d: [{ value: troughA }], duration: 0 })
+        .add({ targets: driftRef.current.querySelectorAll('path'), d: [{ value: troughB }], duration: 1750 })
+        .add({ targets: driftRef.current.querySelectorAll('path'), d: [{ value: troughA }], duration: 1750 });
 
       anime({
         targets: driftRef.current,
@@ -69,7 +58,7 @@ export default function WaveBackground() {
         loop: true,
       });
     });
-  }, []);
+  }, [pathname]);
 
   const makeBubbleStyle = () => {
     const size = 4 + Math.random() * 4;
@@ -88,7 +77,7 @@ export default function WaveBackground() {
   };
 
   return (
-    <div className="wave-bg">
+    <div ref={containerRef} className="wave-bg">
       <svg className="wave-svg" viewBox="0 0 2880 160" preserveAspectRatio="none">
         <path
           ref={morphRef}

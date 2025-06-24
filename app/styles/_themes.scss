@@ -18,3 +18,28 @@ body[data-theme="light"] {
     --but: transparent;
     --search: rgba(0, 0, 0, 0.08);
 }
+
+
+/* Dark Theme Inspired by Resend */
+body[data-theme="dark"] {
+  --bg-color: #000000;
+  --text-color: #f5f5f5;
+  --card-bg: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+  --primary-accent: #ffffff;
+  --glass-button-text: #000;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --shadow-color: rgba(255, 255, 255, 0.06);
+  --input-bg: #111111;
+  --placeholder-color: rgba(255, 255, 255, 0.4);
+  --accent-grad: linear-gradient(135deg, #111111, #222222);
+  --grid: rgba(255, 255, 255, 0.05);
+  --nav: #0a0a0a;
+  --hover: #1e1e1e;
+  --text-hover: #eaeaea;
+  --admin-text-hover: #ffffff;
+  --but: rgba(255, 255, 255, 0.1);
+  --search: rgba(255, 255, 255, 0.05);
+
+  /* Optional glow effect */
+  --glow-accent: 0 0 10px rgba(255, 255, 255, 0.1);
+}

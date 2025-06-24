@@ -48,23 +48,23 @@ export default function Navigation() {
   };
 
   const links = [
-    { href: '/',        label: 'Home'    },
     { href: '/contact', label: 'Contact' },
+    { href: '/info', label: 'About' }
   ];
 
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link href="/" className="nav-logo">Connor&nbsp;D.&nbsp;Wotkowicz</Link>
+        <Link href="/" className="nav-logo">C&nbsp;D&nbsp;W</Link>
         <div className="nav-links">
           {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`nav-item${pathname === href ? ' active' : ''}`}
-            >
-              {label}
-            </Link>
+        <Link
+          key={href}
+          href={href}
+          className={`nav-item${pathname === href ? ' active' : ''}`}
+        >
+          {label}
+        </Link>
           ))}
         </div>
         <button
@@ -77,14 +77,12 @@ export default function Navigation() {
         </button>
       </div>
 
-
       <div
         ref={menuRef}
         className={`mobile-menu${open ? ' open' : ''}`}
         onMouseMove={resetTimer}
         onTouchStart={resetTimer}
         onClick={(e) => {
-          // close when clicking the backdrop itself (not a link)
           if (e.target === menuRef.current) setOpen(false);
         }}
       >

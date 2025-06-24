@@ -1,4 +1,3 @@
-
 :root {
   --bg-color: #f0f2f5;
   --card-bg: rgba(255, 255, 255, 0.9);
@@ -38,11 +37,11 @@
   }
 }
 
-
 .home-page {
-  padding-top: 0rem;
+  padding-top: 4rem;
   min-height: 100vh;
-  background: var(--card-bg);
+   width: 100%;
+   background-color: transparent;
   color: var(--text-color);
   transition:
     background 0.3s,
@@ -57,7 +56,6 @@
   flex-direction: column;
   gap: 2rem;
 }
-
 
 .hero-title,
 .section-title {
@@ -130,6 +128,7 @@
     border-radius: 6px 0 0 6px;
     background: linear-gradient(to bottom, var(--primary-accent), var(--secondary-accent));
   }
+
 }
 
 .project-header {
@@ -168,7 +167,7 @@
   margin-top: auto; // pushes buttons down
   display: flex;
   gap: 1rem;
-  z-index: 3;;
+  z-index: 3;
 }
 
 .project-link-button {
@@ -186,7 +185,7 @@
   overflow: hidden;
   transition: background 0.25s;
   text-align: center;
-   z-index: 3;;
+  z-index: 3;
 
   &:hover {
     background: var(--secondary-accent);
@@ -219,9 +218,9 @@
 .animate-slide-up {
   opacity: 0;
   transform: translateY(40px);
+  visibility: hidden;
   animation: smooth-slide-up 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
   animation-fill-mode: forwards;
-  visibility: hidden;
 }
 
 @keyframes smooth-slide-up {
@@ -238,9 +237,10 @@
 }
 
 .hero-visual {
-  width: 320px;
-  height: 320px;
+  width: 600px;
+  height: 600px;
   position: absolute;
+  left:25rem;
   top: 6rem;
   right: 2rem;
   z-index: 0;
@@ -249,17 +249,24 @@
   transform: translateY(60px) scale(0.4) rotateX(25deg);
   animation: visual-warp-in 2s ease-out forwards;
 
-  @media (max-width: 768px) {
-    position: relative;
-    top: 0;
-    right: 0;
-    margin: 0 auto 2rem;
-  }
-
   canvas {
     width: 100% !important;
     height: 100% !important;
   }
+
+ @media (max-width: 768px) {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    z-index: 2;
+    margin: 0 auto 0.5rem;
+    width: clamp(140px, 40vw, 200px);
+    height: clamp(140px, 40vw, 200px);
+    transform: translateY(0px) scale(1) rotateX(0deg);
+    opacity: 1;
+  }
+
 }
 
 @keyframes visual-warp-in {
@@ -296,4 +303,104 @@
   }
 }
 
+@media (max-width: 768px) {
+  .home-content {
+    padding: 0 1.25rem;   // tighter sides
+    gap: 1.5rem;          // was 2rem — compress vertical rhythm
+  }
 
+  .hero-section {
+    gap: 0.5rem;          // was 1.25rem ➝ stack tighter
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-visual {
+    width: clamp(160px, 38vw, 240px);
+    height: clamp(160px, 38vw, 240px);
+    margin: 0.25rem auto -0.5rem;
+    transform: translateY(30px) scale(0.7) rotateX(12deg);
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-top: 0;
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+    line-height: 1.4;
+    margin-top: 0.25rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+}
+
+
+
+$divider-line:   rgba(255, 255, 255, 0.14);  
+$divider-glow:   rgba(255, 255, 255, 0.10); 
+
+.section-divider {
+  margin-top: 600px;
+  margin-bottom: 0px;
+  position: relative;
+  width: 100%;
+  height: 1px;                               
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    $divider-line 48%,
+    $divider-line 52%,
+    transparent 100%
+  );
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 1px;            
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;         
+    max-width: 1200px;
+    height: 180px;       
+    background: radial-gradient(
+      ellipse at center top,
+      $divider-glow 0%,
+      transparent 75%
+    );
+    pointer-events: none;
+  }
+
+ 
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0 -5vw;                    
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0,0,0,0.35) 20%,
+      rgba(0,0,0,0.35) 80%,
+      transparent 100%
+    );
+    mask: radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,0) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+
+@media (max-width: 700px) {
+   .section-divider {
+    margin-top: 40px !important ;
+    padding-top: 0 !important;
+}
+    }

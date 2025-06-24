@@ -1,0 +1,37 @@
+/* components/SkillsGrid.jsx */
+'use client';
+
+export default function SkillsGrid() {
+  const skills = [
+    { name: 'JavaScript',   src: 'https://api.iconify.design/simple-icons:javascript.svg' },
+    { name: 'React',        src: 'https://api.iconify.design/simple-icons:react.svg' },
+    { name: 'Next.js',      src: 'https://api.iconify.design/simple-icons:nextdotjs.svg' },
+    { name: 'Node.js',      src: 'https://api.iconify.design/simple-icons:nodedotjs.svg' },
+    { name: 'PostgreSQL',   src: 'https://api.iconify.design/simple-icons:postgresql.svg' },
+    { name: 'Go',           src: 'https://api.iconify.design/simple-icons:go.svg' },
+    { name: 'Python',       src: 'https://api.iconify.design/simple-icons:python.svg' },
+    { name: 'Sass / SCSS',  src: 'https://api.iconify.design/simple-icons:sass.svg' },
+    { name: 'Figma',        src: 'https://api.iconify.design/simple-icons:figma.svg' },
+    { name: 'Blender',      src: 'https://api.iconify.design/simple-icons:blender.svg' },
+    { name: 'GitHub',       src: 'https://api.iconify.design/simple-icons:github.svg' },
+    { name: 'Vercel',       src: 'https://api.iconify.design/simple-icons:vercel.svg' },
+  ];
+
+  return (
+    <section className="skills-section">
+          <p className="hero-description animate-slide-up">
+     Full-stack web development with visual fluency 
+    
+      </p>
+      <h2 className="skills-title animate-on-load">Core Tech</h2>
+
+      <ul className="skills-grid">
+        {skills.map((skill) => (
+          <li key={skill.name} className="skill-item">
+            <img src={skill.src} alt={skill.name} className="skill-icon" />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}

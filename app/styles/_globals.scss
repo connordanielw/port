@@ -8,6 +8,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
+
 html,
 body {
   margin: 0;
@@ -15,7 +18,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-  background-color: var(--bg-color);
+  background: var(--card-bg);
   color: var(--text-color);
   box-sizing: border-box;
 }
@@ -348,6 +351,3 @@ button:focus-visible {
   animation: shiny-wipe 1.2s ease-out forwards;
   opacity: 1;
 }
-
-
-

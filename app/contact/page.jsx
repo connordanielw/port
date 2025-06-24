@@ -13,6 +13,7 @@ export default function ContactPage() {
   const [message, setMessage]   = useState('');
   const nameRef = useRef(null);
   const router  = useRouter();
+    const heroRef= useRef(null);
 
 
 useEffect(() => {

@@ -145,3 +145,21 @@
         display: block !important;
     }
 }
+
+.theme-toggle-button {
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    justify-items: center;
+    padding-bottom: 22px;
+    padding-right: 0;
+
+    &hover {
+        color: var(--text-hover);
+    }
+}

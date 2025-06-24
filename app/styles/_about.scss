@@ -48,7 +48,7 @@
     font-size: 1.125rem;
     line-height: 1.6;
     margin-bottom: 1.25rem;
-    color: var(--placeholder-color);
+    color: var(---color);
   }
 }
 
@@ -114,19 +114,21 @@
     color: var(--placeholder-color);
   }
 
-  .btn-primary {
-    background: linear-gradient(90deg, #ffae33 0%, #ff7e00 100%);
-    padding: 0.75rem 2.5rem;
+  .contact-button{
+    background: var(--primary-accent);
+    padding: 0.6rem 1rem;
     border-radius: 0.5rem;
     color: #fff;
     font-weight: 600;
     font-size: 1.125rem;
     text-decoration: none;
     display: inline-block;
-    transition: background 0.3s ease;
+    transition: background 0.8s ease;
 
     &:hover {
-      background: linear-gradient(90deg, #ffbe4f 0%, #ff9900 100%);
+      background: var(--primary-acent);
+      border: 1px solid var(--text-color);
+      color: var(--primary-accent);
     }
   }
 }
@@ -140,5 +142,64 @@
   .about-story h2,
   .about-values h2 {
     font-size: clamp(1.5rem, 4vw + 1rem, 2rem);
+  }
+}
+
+
+
+.about-extension {
+  margin-bottom: 5rem;
+  text-align: left;
+  color: var(--text-color);
+
+  .about-extension-bio {
+    max-width: 42rem;
+    margin: 0 auto;
+
+    .extension-title {
+      font-weight: 600;
+      font-size: clamp(1.75rem, 4vw + 1rem, 2.75rem);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--text-color);
+    }
+
+    p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      color: var(--placeholder-color);
+      text-align: center;
+    }
+  }
+}
+
+.about-facts {
+  margin-bottom: 5rem;
+
+  .facts-container {
+    text-align: center;
+  }
+
+  .facts-title {
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem);
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+  }
+
+  .facts-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+
+    li img {
+      height: 32px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px var(--shadow-color);
+    }
   }
 }

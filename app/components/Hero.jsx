@@ -33,16 +33,8 @@ export default function HeroVisual() {
   <MorphingBlob />
 </Float>
 
-      {/* <Ring
-        args={[1.35, 1.5, 64]}
-        rotation-x={Math.PI / 2}
-        position={[0, -0.2, 0]}
-      >
-        <meshBasicMaterial color="#a8e8ff" transparent opacity={0.15} />
-      </Ring> */}
-
     <ContactShadows
-  position={[0, -1.4, 0]}   // ⬅️ dropped lower on the Y axis
+  position={[0, -1.4, 0]}   
   opacity={0.3}
   scale={5}
   blur={3}
@@ -50,16 +42,11 @@ export default function HeroVisual() {
   color="#000000"
 />
 
-
      <Environment
   files="/hdri/sky.hdr"
   background={false}
   resolution={64}
 />
-
-
-      {/* Auto orbit for motion */}
-      {/* Optionally keep OrbitControls for interaction if needed */}
     </Canvas>
   );
 }

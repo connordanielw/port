@@ -3,14 +3,20 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTheme} from './ThemeContext';
+
+
 
 export default function Navigation() {
   const pathname  = usePathname();
   const [open, setOpen] = useState(false);
-
+  const { theme, toggleTheme } = useTheme();
   const menuRef   = useRef(null);   
   const burgerRef = useRef(null);  
   const timerRef  = useRef(null);   
+  
+
+
 
   useEffect(() => {
     const onClickOutside = (e) => {
@@ -56,7 +62,20 @@ export default function Navigation() {
     <nav className="navbar">
       <div className="nav-container">
         <Link href="/" className="nav-logo">C&nbsp;D&nbsp;W</Link>
-        <div className="nav-links">
+
+           
+ <div className="nav-links">
+<button
+  className="theme-toggle-button"
+  onClick={toggleTheme}           
+  aria-label="Toggle theme"
+>
+  <span className="icon">
+    {theme === 'dark'
+      ? '\u2600\uFE0E'   
+      : '\u263E\uFE0E'} 
+  </span>
+</button>
           {links.map(({ href, label }) => (
         <Link
           key={href}
@@ -86,6 +105,7 @@ export default function Navigation() {
           if (e.target === menuRef.current) setOpen(false);
         }}
       >
+        
         {links.map(({ href, label }) => (
           <Link
             key={href}

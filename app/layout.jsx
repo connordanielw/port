@@ -1,8 +1,11 @@
 
+
 import Navigation from '../app/components/Navigation.jsx';
 import Footer from '../app/components/Footer.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from '../app/components/ThemeContext.jsx';
+import './styles/App.scss';
 
 
 
@@ -15,13 +18,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head />
-      <body data-theme="light">
-        <ToastContainer />
-        <Navigation />
-        <main>
-          {children}
-        </main>
-        <Footer />
+      <body>
+        <ThemeProvider>
+          <ToastContainer />
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

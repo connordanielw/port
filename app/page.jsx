@@ -27,6 +27,8 @@ export default function HomePage() {
   const heroRef= useRef(null);
   const ctaRef = useRef(null);
   const featuresRef = useRef(null);
+  const rootRef = useRef(null);
+
 
   const projects = [
     {
@@ -86,7 +88,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className="home-page">
+    <div className="home-page" ref={rootRef}>
        <WaveBackground /> 
       
       <main className="home-content">

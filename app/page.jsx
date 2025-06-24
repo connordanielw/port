@@ -112,14 +112,21 @@ useEffect(() => {
   <SkillsGrid />
 
         <section className="projects-section">
-          {/* <h2 className="section-title animate-on-load">
-            Portfolio
-          </h2> */}
-          {/* <div className="beveled-icon">
+  
+          <div className="beveled-icon">
           <BeveledIcon />
-          </div> */}
-
-
+          </div>
+<h2
+  className="section-title animate-on-load"
+  style={{ textAlign: 'center' }}
+>
+  Explore recent work
+</h2>
+        <p className="section-subtitle"
+           style={{ textAlign: 'center' }}
+           >
+    Projects that combine creativity, technology and purpose. <br></br>Curated with enthusiasm and precision.
+  </p>
 
           
           <div className="project-grid">

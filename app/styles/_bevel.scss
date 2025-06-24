@@ -1,3 +1,25 @@
 .beveled-icon {
       animation: smooth-slide-up 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
+
+
+.beveled-icon {
+  display: block;
+  margin: 40px auto;
+  cursor: default;
+  user-select: none;
+  position: relative;
+
+  .shine {
+    animation: shine-slide 3.5s ease-in-out infinite;
+  }
+}
+
+@keyframes shine-slide {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}

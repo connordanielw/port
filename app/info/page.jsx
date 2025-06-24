@@ -107,7 +107,7 @@ export default function AboutPage() {
         <p className="hero-line">
           Software Engineer with a background in music and design.
         </p>
-  
+{/*   
           <div className="about-photo-wrapper hero-line">
     
                      <Image
@@ -117,46 +117,42 @@ export default function AboutPage() {
   height={192}
       className="about-photo"
 />
-    </div>
+    </div> */}
         </section>
      
-      <section ref={storyRef} className="about-story">
-        <h2 className="hero-line">About Me</h2>
-        <p className="hero-line">
-          I build clean, scalable apps using React and Node.js, blending creativity and code.
-        </p>
-      </section>
+<section ref={storyRef} className="about-story">
+  <h2 className="hero-line">About Me</h2>
+  <p className="hero-line">
+    I build applications blending creativity and code to solve real-world problems.   
 
-    
-      <section ref={bioRef} className="about-extension">
-        <div className="about-extension-inner">
+  </p>
 
-          <div className="about-extension-bio">
-            <h2 className="extension-title hero-line">Where Tech Meets Intuition</h2>
-            <p className="hero-line">
-              I come from a nature-rooted, farm-raised background — the kind that
-              teaches rhythm, discippne, and long-term thinking. Paired with fluency
-              in languages (code and otherwise) and deep musical knowledge, I bring a
-              tuned eye for structure, flow, and user experience.
-            </p>
-            <p className="hero-line">
-              I learn fast, psten closely, and build with care — bridging the
-              creative and the technical to craft work that feels intentional,
-              popshed, and apve.
-            </p>
-          </div>
-        </div>
-      </section>
+  <p className="hero-line">
+      For as long as I can remember, my goal has been to blend the old with the new / the creative with the technical. What I build today are that bridge.
+  </p>
+</section>
+
+<section ref={bioRef} className="about-extension">
+  <div className="about-extension-inner">
+    <div className="about-extension-bio">
+      <h2 className="extension-title hero-line"></h2>
+      <p className="hero-line">
+   
+      </p>
+    </div>
+  </div>
+</section>
+
 
 <section ref={factsRef} className="about-facts">
 <div className="facts-container hero-line">
-        <h2 className="facts-title hero-line">Quick Facts</h2>
+        <h2 className="facts-title hero-line">Overview</h2>
         <div className="facts-list hero-line">
           <p><strong>Location:</strong> Brooklyn, NY</p>
-          <p><strong>Background:</strong> Farm-raised, musically trained, tech fluent</p>
-          <p><strong>Strengths:</strong> Fast learner, detail-driven, cross-disciplinary thinker</p>
-          <p><strong>Languages:</strong> Polyglot — fluent in English, French, German, and Spanish</p>
-         <h3><strong>Tools & Frameworks:</strong></h3>
+          <p><strong>Background:</strong> Nature-oriented • Musically trained • Tech fluent</p>
+          <p><strong>Strengths:</strong> Fast learner • Detail-driven • Cross-disciplinary thinker</p>
+          <p><strong>Languages:</strong> English • French • German</p>
+         <h3><strong>Tools & Frameworks:</strong></h3> 
 
         </div>
 

@@ -15,6 +15,12 @@ export default function SkillsGrid() {
     { name: 'Blender',      src: 'https://api.iconify.design/simple-icons:blender.svg' },
     { name: 'GitHub',       src: 'https://api.iconify.design/simple-icons:github.svg' },
     { name: 'Vercel',       src: 'https://api.iconify.design/simple-icons:vercel.svg' },
+    { name: 'AWS',          src: './images/aws.png' },
+    { name: 'Pro Tools',    src: './images/pro.png' },
+    { name: 'Ableton Live', src: './images/ableton.png'},
+    { name: 'Fl Studio',    src: './images/fl.png' },
+
+
   ];
 
   return (

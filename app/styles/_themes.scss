@@ -1,33 +1,31 @@
-
 body[data-theme="light"] {
-    --bg-color: #f3f3f6;
-    --text-color: #111111;
-    --card-bg: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
-    --primary-accent: #4baedcb1;
-    --glass-button-text: #f5f5f5;
-    --border-color: rgba(0, 0, 0, 0.05);
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --input-bg: #ffffff;
-    --placeholder-color: rgba(0, 0, 0, 0.5);
-    --accent-grad: linear-gradient(135deg, #2a2a2c 0%, #1b1b1c 100%);
-    --grid: black;
-    --nav: white;
-    --hover: grey;
-    --text-hover: #444;
-    --admin-text-hover: #fafafa;
-    --but: transparent;
-    --search: rgba(0, 0, 0, 0.08);
-     --divider-bg:        rgba(0, 0, 0, 0.025);
-  --divider-line:      rgba(0, 0, 0, 0.06);
-  --divider-glow:      rgba(0, 0, 0, 0.08);
+  --bg-color: #f3f3f6;
+  --text-color: #111111;
+  --card-bg: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+  --primary-accent: #4baedcb1;
+  --glass-button-text: #f5f5f5;
+  --border-color: rgba(0, 0, 0, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --input-bg: #ffffff;
+  --placeholder-color: rgba(0, 0, 0, 0.5);
+  --accent-grad: linear-gradient(135deg, #2a2a2c 0%, #1b1b1c 100%);
+  --grid: black;
+  --nav: white;
+  --hover: grey;
+  --text-hover: #444;
+  --admin-text-hover: #fafafa;
+  --but: transparent;
+  --search: rgba(0, 0, 0, 0.08);
+  --divider-bg: rgba(0, 0, 0, 0.025);
+  --divider-line: rgba(0, 0, 0, 0.06);
+  --divider-glow: rgba(0, 0, 0, 0.08);
   --divider-spotlight: rgba(0, 0, 0, 0.05);
 }
-
 
 body[data-theme="dark"] {
   --bg-color: #000000;
   --text-color: #f5f5f5;
-  --card-bg: rgba(0, 0, 0, 0.03);
+  --card-bg: rgba(0, 0, 0, 0.336);
   --primary-accent: #6366f1;
   --glass-button-text: #f5f5f5;
   --border-color: rgba(255, 255, 255, 0.08);
@@ -43,9 +41,8 @@ body[data-theme="dark"] {
   --but: rgba(255, 255, 255, 0.06);
   --search: rgba(255, 255, 255, 0.05);
   --glow-accent: 0 0 20px rgba(255, 255, 255, 0.15);
-    --divider-bg:        rgba(255, 255, 255, 0.025);
-  --divider-line:      rgba(255, 255, 255, 0.06);
-  --divider-glow:      rgba(255, 255, 255, 0.08);
+  --divider-bg: rgba(255, 255, 255, 0.025);
+  --divider-line: rgba(255, 255, 255, 0.06);
+  --divider-glow: rgba(255, 255, 255, 0.08);
   --divider-spotlight: rgba(255, 255, 255, 0.05);
-
 }

@@ -6,8 +6,7 @@ import WaveBackground from '../../app/components/WaveBackground';
 import Link from 'next/link';
 import Image from 'next/image';
 import { badgeMap } from '../components/BadgeMap';
-
-
+import BeveledIcon from '../components/BevelProfile.jsx';
 
 const badgeLinks = {
   React: 'https://reactjs.org',
@@ -42,143 +41,146 @@ const badgeLinks = {
 };
 
 export default function AboutPage() {
-  const heroRef  = useRef(null);
+  const heroRef = useRef(null);
   const storyRef = useRef(null);
-  const bioRef   = useRef(null);
+  const bioRef = useRef(null);
   const factsRef = useRef(null);
-  const ctaRef   = useRef(null);
+  const ctaRef = useRef(null);
 
   useEffect(() => {
-    if (
-      !heroRef.current ||
-      !storyRef.current ||
-      !bioRef.current  ||
-      !factsRef.current ||
-      !ctaRef.current
-    ) return;
-
-    const herolines  = heroRef.current.querySelectorAll('.hero-line');
-    const storylines = storyRef.current.querySelectorAll('.hero-line');
-    const biolines   = bioRef.current.querySelectorAll('.hero-line');
-    const factslines = factsRef.current.querySelectorAll('.hero-line');
+    const herolines = heroRef.current?.querySelectorAll('.hero-line') || [];
+    const storylines = storyRef.current?.querySelectorAll('.hero-line') || [];
+    const biolines = bioRef.current?.querySelectorAll('.hero-line') || [];
+    const factslines =
+      factsRef.current?.querySelectorAll(
+        '.facts-header.hero-line, .facts-container.hero-line, .facts-list.hero-line'
+      ) || [];
+    const badgeIcons =
+      factsRef.current?.querySelectorAll('.facts-badges .badge-icon') || [];
 
     anime
       .timeline({ easing: 'easeOutExpo', duration: 800 })
       .add({
         targets: herolines,
         translateY: [40, 0],
-        opacity:    [0, 1],
-        delay:      anime.stagger(60)
+        opacity: [0, 1],
+        delay: anime.stagger(60),
       })
-      .add({
-        targets: storylines,
-        translateY: [40, 0],
-        opacity:    [0, 1],
-        delay:      anime.stagger(60)
-      }, '-=400')
-
-      .add({
-        targets: biolines,
-        translateY: [40, 0],
-        opacity:    [0, 1],
-        delay:      anime.stagger(60)
-      }, '-=400')
- 
-      .add({
-        targets: factslines,
-        translateY: [40, 0],
-        opacity:    [0, 1],
-        delay:      anime.stagger(60)
-      }, '-=400')
-      .add({
-        targets: ctaRef.current,
-        scale:   [0.8, 1],
-        opacity: [0, 1]
-      }, '-=200');
+      .add(
+        {
+          targets: storylines,
+          translateY: [40, 0],
+          opacity: [0, 1],
+          delay: anime.stagger(60),
+        },
+        '-=500'
+      )
+      .add(
+        {
+          targets: biolines,
+          translateY: [40, 0],
+          opacity: [0, 1],
+          delay: anime.stagger(60),
+        },
+        '-=600'
+      )
+      .add(
+        {
+          targets: factslines,
+          translateY: [40, 0],
+          opacity: [0, 1],
+          delay: anime.stagger(30),
+        },
+        '-=700'
+      )
+      .add(
+        {
+          targets: badgeIcons,
+          opacity: [0, 1],
+          scale: [0.9, 1],
+          delay: anime.stagger(15),
+          duration: 300,
+        },
+        '-=650'
+      )
+      .add(
+        {
+          targets: ctaRef.current,
+          scale: [0.8, 1],
+          opacity: [0, 1],
+        },
+        '-=200'
+      );
   }, []);
 
   return (
     <main className="about-page">
       <WaveBackground />
 
-      
       <section ref={heroRef} className="about-hero">
         <h1 className="hero-line">Connor D. Wotkowicz</h1>
         <p className="hero-line">
-          Software Engineer with a background in music and design.
+          As a Software Engineer with a background in music and design, I build
+          applications that blend creativity and code to deliver clean,
+          enjoyable user experiences.
         </p>
-{/*   
-          <div className="about-photo-wrapper hero-line">
-    
-                     <Image
-  src="/images/prof.png"
-  alt="Description"
-  width={192}
-  height={192}
-      className="about-photo"
-/>
-    </div> */}
-        </section>
-     
-<section ref={storyRef} className="about-story">
-  <h2 className="hero-line">About Me</h2>
-  <p className="hero-line">
-    I build applications blending creativity and code to solve real-world problems.   
-
-  </p>
-
-  <p className="hero-line">
-      For as long as I can remember, my goal has been to blend the old with the new / the creative with the technical. What I build today are that bridge.
-  </p>
-</section>
-
-<section ref={bioRef} className="about-extension">
-  <div className="about-extension-inner">
-    <div className="about-extension-bio">
-      <h2 className="extension-title hero-line"></h2>
-      <p className="hero-line">
-   
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<section ref={factsRef} className="about-facts">
-<div className="facts-container hero-line">
-        <h2 className="facts-title hero-line">Overview</h2>
-        <div className="facts-list hero-line">
-          <p><strong>Location:</strong> Brooklyn, NY</p>
-          <p><strong>Background:</strong> Nature-oriented • Musically trained • Tech fluent</p>
-          <p><strong>Strengths:</strong> Fast learner • Detail-driven • Cross-disciplinary thinker</p>
-          <p><strong>Languages:</strong> English • French • German</p>
-         <h3><strong>Tools & Frameworks:</strong></h3> 
-
-        </div>
-
-        <div className="facts-badges hero-line">
-          {Object.entries(badgeMap).map(([tech, imgUrl]) => (
-            <a
-              key={tech}
-              href={badgeLinks[tech] || '#'}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={tech}
-            >
-              <img className="badge-icon" src={imgUrl} alt={tech} />
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
-
-  
-      <section className="about-cta">
-        <Link ref={ctaRef} href="/contact" className="contact-button">
-          Contact
-        </Link>
       </section>
+
+      <section ref={storyRef} className="about-story">
+        {/* optional content */}
+      </section>
+
+      <section ref={bioRef} className="about-extension">
+        <div className="about-extension-inner">
+          <div className="about-extension-bio">
+            <h2 className="extension-title hero-line"></h2>
+            <p className="hero-line"></p>
+          </div>
+        </div>
+      </section>
+
+      <div className="i-section-divider" aria-hidden="true"></div>
+      <BeveledIcon />
+
+      <section ref={factsRef} className="about-facts">
+        <div className="facts-header hero-line">
+          <h2 className="facts-title">Overview</h2>
+        </div>
+
+        <div className="facts-container hero-line">
+          <div className="facts-list hero-line">
+            <p>
+              <strong>Location:</strong> <br />
+              Brooklyn, NY
+            </p>
+            <p>
+              <strong>Background:</strong> <br />
+              Nature-oriented • Musically trained • Tech fluent
+            </p>
+            <p>
+              <strong>Strengths:</strong> <br />
+              Fast learner • Detail-driven • Cross-disciplinary thinker
+            </p>
+          </div>
+
+          <div className="facts-badges hero-line">
+            {Object.entries(badgeMap).map(([tech, imgUrl]) => (
+              <a
+                key={tech}
+                href={badgeLinks[tech] || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={tech}
+              >
+                <img className="badge-icon" src={imgUrl} alt={tech} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Optional CTA */}
+      <div ref={ctaRef} className="about-cta"></div>
     </main>
   );
 }

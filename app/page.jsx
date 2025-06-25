@@ -34,17 +34,17 @@ export default function HomePage() {
     {
       title: 'DiscogMVP',
       date: 'May 2025',
-      tech: 'React • React Router • Vite • SCSS Modules • Node.js • Express.js • PostgreSQL • JWT • Stripe • Jest • React Testing Library • Supertest',
+      tech: 'React • React Router • Vite • SCSS • Node.js • Express • PostgreSQL • JWT • Stripe • Jest • React Testing Library • Supertest',
       site: 'https://discog-mv-producer.vercel.app',
-      description: 'A full-stack e-commerce platform for vinyl and music lovers — featuring artist bios, wishlists, admin tools, and Stripe-powered checkout.',
+      description: 'A full-stack e-commerce platform for vinyl and music lovers — featuring artist bios, wishlists, admin tools, and Stripe-powered checkout. Team project. Backend not currently live',
       repo: 'https://github.com/connorwotkowicz/DiscogMVProducer'
     },
     {
       title: 'SoundPiece: GLE',
       date: 'June 2025',
-      tech: 'Next.js 14 • React • SCSS Modules • Context API • Express.js • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Supabase Storage • Axios • Vercel • AWS EC2 • React Testing Library • Supertest • Jest • Tone.js',
+      tech: 'Next.js • React • SCSS • Context API • Express • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Axios • Vercel • AWS EC2 • Supertest • Jest • Tone.js • React Testing Library',
       site: 'https://sound-piece-grand-line.vercel.app',
-      description: 'Prospective creative skill-trading platform for musicians and artists.',
+      description: 'Prospective creative skill-trading platform for musicians and artists. New. Backend not currently live, but fully tested',
       repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line'
     },
     {
@@ -120,14 +120,14 @@ useEffect(() => {
   className="section-title animate-on-load"
   style={{ textAlign: 'center' }}
 >
-  Explore recent work
+  Recent work
 </h2>
         <p className="section-subtitle"
            style={{ textAlign: 'center' }}
            >
-    Projects that combine creativity, technology and purpose. <br></br>Curated with enthusiasm and precision.
+    Projects that combine creativity, technology and purpose. <br></br>Built with enthusiasm and precision.
   </p>
-
+<div className="i-section-divider" aria-hidden="true"></div>
           
           <div className="project-grid">
             {projects.map((p, i) => (

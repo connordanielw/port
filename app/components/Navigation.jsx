@@ -97,6 +97,7 @@ export default function Navigation() {
       </div>
 
       <div
+      
         ref={menuRef}
         className={`mobile-menu${open ? ' open' : ''}`}
         onMouseMove={resetTimer}

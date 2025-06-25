@@ -116,7 +116,7 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <WaveBackground />
-
+<div className="about-container">
       <section ref={heroRef} className="about-hero">
         <h1 className="hero-line">Connor D. Wotkowicz</h1>
         <p className="hero-line">
@@ -144,7 +144,7 @@ export default function AboutPage() {
 
       <section ref={factsRef} className="about-facts">
         <div className="facts-header hero-line">
-          <h2 className="facts-title">Overview</h2>
+          {/* <h2 className="facts-title">Overview</h2> */}
         </div>
 
         <div className="facts-container hero-line">
@@ -181,6 +181,8 @@ export default function AboutPage() {
 
       {/* Optional CTA */}
       <div ref={ctaRef} className="about-cta"></div>
+      </div>
     </main>
+    
   );
 }

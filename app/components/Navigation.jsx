@@ -65,17 +65,6 @@ export default function Navigation() {
 
            
  <div className="nav-links">
-<button
-  className="theme-toggle-button"
-  onClick={toggleTheme}           
-  aria-label="Toggle theme"
->
-  <span className="icon">
-    {theme === 'dark'
-      ? '\u2600\uFE0E'   
-      : '\u263E\uFE0E'} 
-  </span>
-</button>
           {links.map(({ href, label }) => (
         <Link
           key={href}

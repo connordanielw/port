@@ -88,9 +88,9 @@ useEffect(() => {
         <WaveBackground /> 
       <div className="contact">
         <section>
-          <h3>Contact Us</h3>
+          <h3>Contact</h3>
           <div className="contact-instr">
-            <h4>Ask us anything!</h4>
+            <h4></h4>
           </div>
 
           <form className="contact-form" onSubmit={handleSubmit}>

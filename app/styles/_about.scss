@@ -2,9 +2,14 @@
 
 .about-page {
   padding: 3rem 1.5rem;
-  max-width: 60rem;
+
   margin: 0 auto;
   color: var(--text-color);
+  background: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--card-bg);
   font-family:
     system-ui,
     -apple-system,
@@ -17,6 +22,14 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+}
+
+
+
+.about-container{
+  max-width: 60rem;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .about-hero {

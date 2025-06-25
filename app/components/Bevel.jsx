@@ -11,7 +11,7 @@ export default function BeveledCodeIcon() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        {/* New gradients */}
+ 
         <linearGradient id="gradA" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#7ed9ff" />
           <stop offset="50%" stopColor="#9b86ff" />
@@ -23,7 +23,7 @@ export default function BeveledCodeIcon() {
           <stop offset="100%" stopColor="#7ed9ff" />
         </linearGradient>
 
-        {/* Clip path to keep shine inside rounded rect */}
+      ~
         <clipPath id="clipRect">
           <rect x="10" y="10" width="80" height="80" rx="15" ry="15" />
         </clipPath>

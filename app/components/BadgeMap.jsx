@@ -23,8 +23,9 @@ export const badgeMap = {
   Axios: 'https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white',
   Vercel: 'https://img.shields.io/badge/Vercel-000?style=for-the-badge&logo=vercel&logoColor=white',
   'AWS EC2': 'https://img.shields.io/badge/AWS_EC2-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
+  'Railway': 'https://img.shields.io/badge/Railway-000000?style=for-the-badge&logo=railway&logoColor=white',
   'Tone.js': 'https://img.shields.io/badge/Tone.js-ff7373?style=for-the-badge',
-
+  'Figma': 'https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge',
   // Added music and 3D tools:
   Ableton: 'https://img.shields.io/badge/Ableton_Live-000000?style=for-the-badge&logo=abletonlive&logoColor=white',
   'Pro Tools': 'https://img.shields.io/badge/Pro_Tools-6E2B96?style=for-the-badge&logo=protools&logoColor=white',

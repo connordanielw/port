@@ -151,7 +151,7 @@ export default function AboutPage() {
           <div className="facts-list hero-line">
             <p>
               <strong>Location:</strong> <br />
-              Brooklyn, NY
+              New York, NY
             </p>
             <p>
               <strong>Background:</strong> <br />

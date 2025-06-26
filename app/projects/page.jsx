@@ -1,5 +1,8 @@
 'use client';
-import '../styles/App.scss';
+
+import { useRef, useEffect } from 'react';
+import anime from 'animejs';
+
 
 export default function ProjectsPage() {
   const projects = [
@@ -10,11 +13,10 @@ export default function ProjectsPage() {
       repo: 'https://github.com/2410-Capstone/DiscogMVP',
       bullets: [
         'Led a five-person team through UI/UX sprints and GitHub workflow setup for a full-stack vinyl-marketplace platform',
-        'Structured and designed entire frontend, mirroring Apple-style layouts while optimizing accessibility (ARIA labels, keyboard nav)',
-        'Developed responsive layout and reusable component system using React and SCSS Modules',
-        'Implemented Node/Express API with JWT authentication, dynamic product filtering, and Stripe checkout integration',
-        'Stack: React, Node.js, Express, PostgreSQL, JWT, Stripe, SCSS Modules'
-      ]
+        'Built Apple-style responsive frontend with React + SCSS Modules and full ARIA / keyboard support',
+        'Implemented Node/Express API, JWT auth, dynamic filters, Stripe checkout',
+        'Stack: React, Node.js, Express, PostgreSQL, JWT, Stripe, SCSS Modules',
+      ],
     },
     {
       title: 'SoundPiece: Grand Line Edition',
@@ -22,12 +24,11 @@ export default function ProjectsPage() {
       date: 'June 2025',
       repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line',
       bullets: [
-        'Constructed a mock audio-based skill trading platform (WIP) with Next.js 14 & Express monorepo, JWT + bcrypt auth, Supabase uploads',
-        'Built profile/dashboard workflows and a trade-request system with live API endpoints, backed by Jest & Supertest',
-        'Configured CI/CD for Vercel (frontend) and AWS EC2 (backend), plus environment management via .env',
-        'Open-sourced a lightweight useMediaUpload hook to standardize React flow',
-        'Stack: Next.js 14, React, SCSS Modules, Context API, Express.js, Prisma, PostgreSQL (Supabase), JWT, bcrypt, Supabase Storage, Axios, Vercel, AWS EC2'
-      ]
+        'Prototype audio-skill trading platform (Next 14 + Express monorepo) with JWT/bcrypt auth & Supabase uploads',
+        'Dashboard, trade-request flow, full API covered by Jest + Supertest',
+        'Automated CI/CD: Vercel frontend, AWS EC2 backend, env-safe deploy',
+        'Stack: Next 14, React, SCSS Modules, Context API, Express, Prisma, PostgreSQL, Supabase, AWS EC2',
+      ],
     },
     {
       title: 'BeatSeq',
@@ -35,58 +36,77 @@ export default function ProjectsPage() {
       date: 'May – June 2025',
       repo: 'https://github.com/connorwotkowicz/BeatSeq',
       bullets: [
-        'Built a 4×16 drum-machine sequencer in React & Tone.js for audio testing and pattern persistence',
-        'Engineered an Express.js + PostgreSQL backend with JWT auth to save/load user patterns',
-        'Designed custom UI (supports both Vite and Next.js builds) with SCSS, deployed via Vercel',
-        'Stack: React, Tone.js, Node.js, Express, PostgreSQL, JWT, Next.js, Vite, SCSS, Supabase, Vercel'
-      ]
-    }
+        '4×16 drum-machine sequencer in React + Tone.js with pattern persistence',
+        'Express + PostgreSQL backend, JWT auth, deployed on Vercel',
+        'Stack: React, Tone.js, Node.js, Express, PostgreSQL, JWT, Vite, SCSS',
+      ],
+    },
   ];
 
-return (
-  <div className="home-page">
-    <main className="home-content">
-      <h1 className="section-title">Portfolio</h1>
+  const stripeRefs = useRef([]);
+
+  /* entry animation */
+  useEffect(() => {
+    stripeRefs.current.forEach((stripe, i) => {
+      if (!stripe) return;
+
+      const pills   = stripe.querySelectorAll('.pill');
+      const bullets = stripe.querySelectorAll('li');
+
+      anime.timeline({ easing: 'easeOutExpo', delay: 150 + i * 180 })
+        .add({
+          targets: stripe,
+          opacity: [0, 1],
+          translateY: [40, 0],
+          duration: 650,
+        })
+        .add({
+          targets: pills,
+          opacity: [0, 1],
+          translateY: [10, 0],
+          delay: anime.stagger(120),
+          duration: 400,
+        }, '-=300')
+        .add({
+          targets: bullets,
+          opacity: [0, 1],
+          translateX: [-14, 0],
+          delay: anime.stagger(60),
+          duration: 320,
+        }, '-=320');
+    });
+  }, []);
+
+  return (
+    <div className="project-page">
+      <h1 className="section-title" style={{ padding: '3rem 2rem' }}>Portfolio</h1>
 
       {projects.map((p, i) => (
-        <div
+        <section
           key={p.title}
-          className="project-bar animate-slide-up"
-          style={{ animationDelay: `${0.4 + i * 0.15}s` }}
+          className={`stripe ${i % 2 === 0 ? 'default' : 'grey'}`}
+          ref={(el) => (stripeRefs.current[i] = el)}
         >
-          <div className="project-bar-header">
-            <h3 className="project-bar-title">{p.title}</h3>
-            <span className="project-bar-date">{p.date}</span>
-          </div>
+          <div className="stripe-inner">
+            {/* header */}
+            <header className="project-bar-header">
+              <h2 className="project-title">{p.title}</h2>
+              <span className="project-date">{p.date}</span>
+            </header>
 
-          <div className="project-bar-links">
-            <a
-              href={p.url}
-              target="_blank"
-              rel="noopener"
-              className="book-modal-button"
-            >
-              Site
-            </a>
-            <a
-              href={p.repo}
-              target="_blank"
-              rel="noopener"
-              className="book-modal-button"
-            >
-              Repo
-            </a>
-          </div>
+            {/* links */}
+            <div className="project-links">
+              <a href={p.url}  target="_blank" rel="noopener" className="pill">Site</a>
+              <a href={p.repo} target="_blank" rel="noopener" className="pill">Repo</a>
+            </div>
 
-          <ul className="project-bar-list">
-            {p.bullets.map((b, idx) => (
-              <li key={idx}>{b}</li>
-            ))}
-          </ul>
-        </div>
+            {/* bullets */}
+            <ul className="project-bullets">
+              {p.bullets.map((b, idx) => <li key={idx}>{b}</li>)}
+            </ul>
+          </div>
+        </section>
       ))}
-    </main>
-  </div>
-);
+    </div>
+  );
 }
-

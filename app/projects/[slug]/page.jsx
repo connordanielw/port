@@ -1,0 +1,125 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { useParams } from 'next/navigation';
+import anime from 'animejs';
+import Link from 'next/link';
+import WaveBackground from '../../components/WaveBackground';
+import { badgeMap } from '../../components/BadgeMap';
+
+
+const projects = [
+  {
+    slug: 'discogmvp',
+    title: 'DiscogMVP',
+    site: 'https://discog-mv-producer.vercel.app',
+    repo: 'https://github.com/connorwotkowicz/DiscogMVProducer',
+    image: '/images/fallingrecord.png',
+    description: 'A full-stack e-commerce platform built using React, Express, and PostgreSQL.',
+    tech: 'React • Vite • SCSS • PostgreSQL • JWT • Stripe • Jest • React Testing Library • Supertest • Node.js • Express • React Router'
+  },
+  {
+    slug: 'soundpiece-gle',
+    title: 'SoundPiece: GLE',
+    site: 'https://sound-piece-grand-line.vercel.app',
+    repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line',
+    image: '/images/Frame-2.png',
+    description: 'A creative skill-sharing platform for music producers and artists. Work in an online community to share your chops, your tech, your workstations and more.',
+     tech: 'Next.js • React • SCSS • Context API • Express • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Axios • Vercel • AWS EC2 • Supertest • Jest • Tone.js • React Testing Library',
+  },
+  {
+    slug: 'beatseq',
+    title: 'BeatSeq',
+    site: 'https://beatseq.vercel.app',
+    repo: 'https://github.com/connorwotkowicz/BeatSeq',
+    image: '/images/beatmock.png',
+    description: 'A browser-based beat sequencer app with real-time audio playback.',
+tech: 'React • Tone.js • Node.js • Express • PostgreSQL • JWT • Next.js • Vite • SCSS • Supabase • Vercel',
+  }
+];
+
+const renderBadges = (techStr) =>
+  techStr
+    .split(/[•,]/)
+    .map((t) => t.trim())
+    .filter(Boolean)
+    .map((t) =>
+      badgeMap[t] ? (
+        <img key={t} src={badgeMap[t]} alt={`${t} badge`} className="tech-badge" />
+      ) : (
+        <span key={t} className="tech-text">{t}</span>
+      )
+    );
+
+export default function ProjectPage() {
+  const { slug } = useParams();
+  const project = projects.find(p => p.slug === slug);
+  const techRef = useRef(null); 
+  const backRef = useRef(null);  
+
+
+
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
+  const descRef = useRef(null);
+  const btnRef = useRef(null);
+
+useEffect(() => {
+  if (!containerRef.current) return;
+
+  anime.timeline({ easing: 'easeOutExpo', duration: 700 })
+    .add({
+      targets: titleRef.current,
+      translateY: [-30, 0],
+      opacity: [0, 1],
+    })
+    .add({
+      targets: descRef.current,
+      translateY: [-20, 0],
+      opacity: [0, 1],
+    }, '-=400')
+    .add({
+      targets: btnRef.current.children,                
+      translateY: [-15, 0],
+      opacity: [0, 1],
+      delay: anime.stagger(120),
+    }, '-=400')
+    .add({
+      targets: techRef.current?.children,              
+      translateY: [10, 0],
+      opacity: [0, 1],
+      delay: anime.stagger(90),
+    }, '-=300')
+    .add({                                              
+      targets: backRef.current,
+      translateY: [10, 0],
+      opacity: [0, 1],
+    }, '-=250');
+}, []);
+
+
+
+  if (!project) return <div className="project-page">Project not found</div>;
+
+  return (
+    <main className="project-page" ref={containerRef}>
+      <WaveBackground />
+
+
+
+      <div className="project-details">
+        <h1 ref={titleRef}>{project.title}</h1>
+        <p className="project-description" ref={descRef}>{project.description}</p>
+
+        <div className="project-links" ref={btnRef}>
+          <a href={project.site} target="_blank" className="project-link-button">Live Site</a>
+          <a href={project.repo} target="_blank" className="project-link-button">GitHub</a>
+        </div>
+
+        <div className="project-tech" ref={techRef}>{renderBadges(project.tech)}</div>
+
+        <Link href="/"  ref={backRef}  className="back-link">← Back to Base</Link>
+      </div>
+    </main>
+  );
+}

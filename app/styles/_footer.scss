@@ -1,7 +1,9 @@
-
+/* ───────────────────────── Footer ───────────────────────── */
 .app-footer {
-  background: var(--card-bg);
+  /* one source of truth → follows light / dark theme */
+  background: var(--bg-color);
   color: var(--text-color);
+
   font-size: 0.85rem;
   padding: 3rem 0 2rem;
   border-top: 1px solid var(--border-color);
@@ -9,60 +11,77 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 5;
 
+  /* —— inner wrapper —— */
   .footer-inner {
-    max-width: 1000px; 
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 2rem; 
+    padding: 0 2rem;
     text-align: center;
-    z-index: 5;
-    color: dark;
+       position: relative;
+      z-index: 20;
   }
 
+  /* —— top grid —— */
   .footer-top {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--border-color);
-    justify-items: center; 
+    justify-items: center;
+
+    background: var(--bg-color); /* inherits the same theme token */
+    color: var(--text-color);
+   position: relative;
+      z-index: 20;
   }
 
+  /* —— section titles & links —— */
   .footer-section {
-    text-align: center; 
+    text-align: center;
+       position: relative;
+      z-index: 20;
 
     h4 {
       font-weight: 600;
       font-size: 0.85rem;
       margin-bottom: 0.75rem;
+      color: var(--text-color);
+      position: relative;
+      z-index: 20;
     }
 
     .footer-links {
       display: flex;
-      justify-content: center;
       flex-direction: column;
       gap: 0.5rem;
-      align-items: center; 
+      align-items: center;
+      z-index: 5;
 
       a {
         text-decoration: none;
-        color: var(--text-color);
         font-size: 0.75rem;
-        font-weight: 400;
+        color: var(--text-color);
+        z-index: 5;
 
         &:hover {
-      
           text-decoration: underline;
+          color: var(--primary-accent);
         }
       }
     }
   }
 
+  /* —— bottom note —— */
   .footer-bottom {
     text-align: center;
     font-size: 0.7rem;
     opacity: 0.6;
     margin-top: 2rem;
+    color: var(--text-color);
+    z-index: 5;
 
     p {
       margin: 0;
@@ -70,10 +89,12 @@
   }
 }
 
-/* Responsive tweak */
+/* ——— mobile layout tweak ——— */
 @media (max-width: 768px) {
   .footer-top {
     grid-template-columns: repeat(2, 1fr);
+    z-index: 5;
     gap: 2rem 2rem;
+    background: transparent; /* blend with page on small screens */
   }
 }

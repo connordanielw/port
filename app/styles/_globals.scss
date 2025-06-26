@@ -8,6 +8,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.page-content,
+.home-page,
+.contact-main {
+  background-color: var(--bg-color);
+}
+
 html,
 body {
   margin: 0;
@@ -15,7 +21,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-  // background: var(--card-bg);
+
   background-color: var(--card-bg);
   color: var(--text-color);
   box-sizing: border-box;
@@ -200,6 +206,7 @@ button:focus-visible {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  background-color: var(--card-bg);
 }
 
 .back-modal-button {

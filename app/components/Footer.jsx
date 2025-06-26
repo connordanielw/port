@@ -12,6 +12,7 @@ const { theme, toggleTheme } = useTheme();
 
   return (
     <footer className="app-footer">
+      <main>
       <div className="footer-inner">
         <div className="footer-links">
           <Link href="/projects" className="footer-link">
@@ -35,6 +36,8 @@ const { theme, toggleTheme } = useTheme();
 </button>
         <p className="footer-text">© {new Date().getFullYear()} Connor D Wotkowicz </p>
       </div>
+          </main>
     </footer>
+
   );
 }

@@ -15,10 +15,10 @@ const { theme, toggleTheme } = useTheme();
       <main>
       <div className="footer-inner">
         <div className="footer-links">
-          <Link href="/projects" className="footer-link">
+          {/* <Link href="/projects" className="footer-link">
             Works
           </Link>
-          {' | '}
+          {' | '} */}
           <Link href="/contact" className="footer-link">
             Contact
           </Link>
@@ -34,7 +34,7 @@ const { theme, toggleTheme } = useTheme();
       : '\u263E\uFE0E'} 
   </span>
 </button>
-        <p className="footer-text">© {new Date().getFullYear()} Connor D Wotkowicz </p>
+        <p className="footer-text"> {new Date().getFullYear()} Connor D Wotkowicz </p>
       </div>
           </main>
     </footer>

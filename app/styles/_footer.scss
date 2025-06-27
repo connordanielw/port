@@ -1,6 +1,6 @@
-/* ───────────────────────── Footer ───────────────────────── */
+
 .app-footer {
-  /* one source of truth → follows light / dark theme */
+
   background: var(--bg-color);
   color: var(--text-color);
 
@@ -13,7 +13,7 @@
   align-items: center;
   z-index: 5;
 
-  /* —— inner wrapper —— */
+
   .footer-inner {
     max-width: 1000px;
     margin: 0 auto;
@@ -23,7 +23,7 @@
       z-index: 20;
   }
 
-  /* —— top grid —— */
+
   .footer-top {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -38,7 +38,7 @@
       z-index: 20;
   }
 
-  /* —— section titles & links —— */
+
   .footer-section {
     text-align: center;
        position: relative;
@@ -74,7 +74,7 @@
     }
   }
 
-  /* —— bottom note —— */
+  
   .footer-bottom {
     text-align: center;
     font-size: 0.7rem;
@@ -89,12 +89,12 @@
   }
 }
 
-/* ——— mobile layout tweak ——— */
+
 @media (max-width: 768px) {
   .footer-top {
     grid-template-columns: repeat(2, 1fr);
     z-index: 5;
     gap: 2rem 2rem;
-    background: transparent; /* blend with page on small screens */
+    background: transparent; 
   }
 }

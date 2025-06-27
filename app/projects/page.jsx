@@ -7,7 +7,7 @@ import anime from 'animejs';
 export default function ProjectsPage() {
   const projects = [
     {
-      title: "DiscogMVP 'Most Valuable Producer' Model",
+      title: "DiscogMVP",
       url: "https://discog-mv-producer.vercel.app",
       date: 'May 2025',
       repo: 'https://github.com/2410-Capstone/DiscogMVP',

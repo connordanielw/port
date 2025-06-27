@@ -30,9 +30,9 @@ export default function HomePage() {
 
   const projects = [
     //       {
-    //   title: 'BeatSeq',
-    //       slug: 'beatseq',
-    //   // date: 'May – June 2025',
+    //   title: 'Coming soon...',
+    //       slug: 'CueSketch',
+    //   // date: 'Autumn 2025',
     //   image: '/images/beatmock.png',
     //   // tech: 'React • Tone.js • Node.js • Express • PostgreSQL • JWT • Next.js • Vite • SCSS • Supabase • Vercel',
     //   site: 'https://beatseq.vercel.app',
@@ -43,7 +43,7 @@ export default function HomePage() {
       title: 'DiscogMVP',
        slug: 'discogmvp',
       // date: 'May 2025',
-      image: './images/fallingrecord.png',
+      image: './images/vin.png',
       // tech: 'React • React Router • Vite • SCSS • Node.js • Express • PostgreSQL • JWT • Stripe • Jest • React Testing Library • Supertest',
       site: 'https://discog-mv-producer.vercel.app',
       // description: 'A full-stack e-commerce platform. Backend not currently live',
@@ -91,7 +91,7 @@ export default function HomePage() {
         <SkillsGrid />
 
         <section className="projects-section">
-          <div className="beveled-icon"><BeveledIcon /></div>
+          {/* <div className="beveled-icon"><BeveledIcon /></div> */}
           <h2 className="section-title animate-on-load" style={{ textAlign: 'center' }}>Recent work</h2>
           <p className="section-subtitle" style={{ textAlign: 'center' }}>
             Projects that combine creativity, technology and purpose.<br />Built with enthusiasm and precision.

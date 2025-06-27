@@ -1,8 +1,5 @@
-
-
 .about-page {
   padding: 3rem 1.5rem;
-
   margin: 0 auto;
   color: var(--text-color);
   background: var(--card-bg);
@@ -22,11 +19,10 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  min-height: 100vh;
 }
 
-
-
-.about-container{
+.about-container {
   max-width: 60rem;
   align-items: center;
   margin: 0 auto;
@@ -37,7 +33,7 @@
   text-align: center;
 
   h1 {
-    font-weight: 600;
+    font-weight: 450;
     line-height: 1.15;
     font-size: clamp(2.75rem, 5vw + 1rem, 3.75rem);
     color: var(--text-color);
@@ -72,7 +68,7 @@
     font-size: 1.125rem;
     line-height: 1.6;
     margin-bottom: 1.25rem;
-    color: var(---color);
+    color: var(--placeholder-color);
   }
 
   .hero-line {
@@ -137,7 +133,8 @@
   max-width: 30rem;
   margin: 0 auto;
   padding-top: 0;
-  margin-top: 0 p {
+
+  p {
     font-size: 1.125rem;
     margin-bottom: 1.5rem;
     color: var(--placeholder-color);
@@ -155,22 +152,10 @@
     transition: background 0.8s ease;
 
     &:hover {
-      background: var(--primary-acent);
+      background: var(--primary-accent);
       border: 1px solid var(--text-color);
       color: var(--primary-accent);
     }
-  }
-}
-
-
-@media (max-width: 640px) {
-  .about-hero h1 {
-    font-size: clamp(2rem, 5vw + 1rem, 3rem);
-  }
-
-  .about-story h2,
-  .about-values h2 {
-    font-size: clamp(1.5rem, 4vw + 1rem, 2rem);
   }
 }
 
@@ -201,19 +186,11 @@
   }
 }
 
-
-
-
-
 .about-facts {
   margin-bottom: 5rem;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
   text-align: left;
   align-items: center;
- 
 
   .facts-container {
     display: flex;
@@ -223,9 +200,6 @@
     background: transparent;
     border-radius: 8px;
     padding: 3rem;
-    // backdrop-filter: blur(16px) saturate(180%);
-    // border: 1px solid var(--facts-bg-opacity);
-    // box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -307,7 +281,6 @@
   margin: 0 auto 1.5rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   border: 3px solid var(--primary-accent);
-
   transition: transform 0.3s ease;
   cursor: pointer;
 
@@ -319,13 +292,16 @@
 
 .facts-list {
   flex: 2;
-  max-width: 58%;
-  min-width: 280px;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  min-width: 350px;
+  text-align: right;
 
   p {
     font-size: 1.125rem;
     margin-bottom: 1rem;
+    margin-top: 0;
     color: var(--text-color);
     white-space: normal;
   }
@@ -335,5 +311,49 @@
     margin-bottom: 1rem;
     font-size: 1.25rem;
     font-weight: 600;
+  }
+}
+
+/* ───────────────────────────────
+    MOBILE ADJUSTMENTS
+──────────────────────────────── */
+@media (max-width: 640px) {
+  .about-hero h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 3rem);
+  }
+
+  .about-story h2,
+  .about-values h2 {
+    font-size: clamp(1.5rem, 4vw + 1rem, 2rem);
+  }
+
+  .facts-list {
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    min-width: unset;
+    max-width: 100%;
+
+    p,
+    h3 {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .facts-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .facts-right {
+    align-items: center;
+
+    .facts-badges {
+      justify-content: center;
+    }
   }
 }

@@ -127,7 +127,7 @@ export default function AboutPage() {
       </section>
 
       <section ref={storyRef} className="about-story">
-        {/* optional content */}
+
       </section>
 
       <section ref={bioRef} className="about-extension">
@@ -140,7 +140,7 @@ export default function AboutPage() {
       </section>
 
       <div className="i-section-divider" aria-hidden="true"></div>
-      <BeveledIcon />
+      {/* <BeveledIcon /> */}
 
       <section ref={factsRef} className="about-facts">
         <div className="facts-header hero-line">
@@ -148,20 +148,21 @@ export default function AboutPage() {
         </div>
 
         <div className="facts-container hero-line">
-          <div className="facts-list hero-line">
-            <p>
-              <strong>Location:</strong> <br />
-              New York, NY
-            </p>
-            <p>
-              <strong>Background:</strong> <br />
-              Nature-oriented • Musically trained • Tech fluent
-            </p>
-            <p>
-              <strong>Strengths:</strong> <br />
-              Fast learner • Detail-driven • Cross-disciplinary thinker
-            </p>
-          </div>
+  <div className="facts-list hero-line">
+  <p>
+    <strong>Location:</strong><br />
+    New York, NY
+  </p>
+  <p>
+    <strong>Background:</strong><br /> 
+    Nature-oriented <br></br>Musically trained <br></br> Tech fluent
+  </p>
+  <p>
+    <strong>Strengths:</strong><br />
+    Fast learner <br></br>Detail-driven <br></br> Cross-disciplinary thinker
+  </p>
+</div>
+
 
           <div className="facts-badges hero-line">
             {Object.entries(badgeMap).map(([tech, imgUrl]) => (

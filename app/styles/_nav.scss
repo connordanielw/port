@@ -1,6 +1,4 @@
-/* styles/components/_nav.scss */
 
-/* NAVBAR STRUCTURE */
 .navbar {
     height: 60px;
     position: fixed;
@@ -34,14 +32,14 @@
     position: relative;
 }
 
-/* LOGO */
+
 .nav-logo {
     font-size: 20px;
     color: var(--text-color);
     text-decoration: none;
 }
 
-/* NAV LINKS (desktop) */
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -60,19 +58,30 @@
     opacity: 0.7;
 }
 
-/* HAMBURGER ICON */
+
 .hamburger {
-    display: none;
-    font-size: 32px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-color);
-    padding-right: 24px; /* increased space on the right */
-    z-index: 1001;
+  display: none;
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  padding-right: 24px;
+  z-index: 1001;
+
+  /* Add these to suppress mobile tap artifacts */
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
-/* MOBILE MENU */
+.hamburger:focus,
+.hamburger:active {
+  outline: none;
+  box-shadow: none;
+  background: none;
+}
+
 .mobile-menu {
     position: fixed;
     top: 60px;

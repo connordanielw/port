@@ -2,6 +2,7 @@
 .navbar {
     height: 60px;
     position: fixed;
+    max-width: 1196;
     top: 0;
     width: 100%;
     z-index: 100;
@@ -23,8 +24,11 @@
         backdrop-filter 0.3s ease;
 }
 
+
+
+
 .nav-container {
-    max-width: 1000px;
+    max-width: 1196px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -32,11 +36,29 @@
     position: relative;
 }
 
+.logo {
+  width: 80px;
+  transition: filter 0.3s ease;
+
+
+}
+
+/* Light theme: leave it black */
+body[data-theme="light"] .logo {
+  filter: none;
+}
+
+/* Dark theme: flip black → white */
+body[data-theme="dark"] .logo {
+  filter: invert(1);
+}
+
+
 
 .nav-logo {
     font-size: 20px;
     color: var(--text-color);
-    text-decoration: none;
+ 
 }
 
 
@@ -47,7 +69,7 @@
 }
 
 .nav-item {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-color);
     text-decoration: none;
     transition: opacity 0.3s ease;

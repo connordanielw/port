@@ -4,8 +4,6 @@ import Link from 'next/link';
 import { useTheme} from './ThemeContext';
 
 
-
-
 export default function Footer() {
 
 const { theme, toggleTheme } = useTheme();
@@ -34,7 +32,7 @@ const { theme, toggleTheme } = useTheme();
       : '\u263E\uFE0E'} 
   </span>
 </button>
-        <p className="footer-text"> {new Date().getFullYear()} Connor D Wotkowicz </p>
+        <p className="footer-text"> {new Date().getFullYear()} Connor D Wotkowicz | connorwotkowicz@gmail.com</p>
       </div>
           </main>
     </footer>

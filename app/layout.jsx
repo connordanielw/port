@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
           <ToastContainer />
           <Navigation />
           <main>{children}</main>
-                <ChatWidget />
+                {/* <ChatWidget /> */}
           <Footer />
         </ThemeProvider>
       </body>

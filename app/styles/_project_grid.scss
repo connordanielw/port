@@ -16,11 +16,13 @@
   flex-direction: column;
   width: 600px !important;
   height: 680px;
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
   background: var(--input-bg);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 
   &:hover {
     transform: translateY(-9px);
@@ -76,14 +78,21 @@
   align-items: flex-start;
 }
 .project-title {
-  font-size: 1.6rem;
+   font-size: 1.4rem;
+  font-weight: 500;
+  color: white;
+  margin-top: 0;
+}
+
+.project-m-title {
+   font-size: 1.4rem;
   font-weight: 500;
   color: black;
-  margin-top: 0
+  margin-top: 0;
 }
 .project-date {
   font-size: 1rem;
-  color: var(--text-color);
+  color: white;
 }
 .project-description {
   font-size: 1rem;
@@ -156,7 +165,7 @@
   }
 
   .project-title {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .project-date,
@@ -173,7 +182,10 @@
   }
 
   .project-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  .project-m-title {
+    font-size: 1rem;
   }
 
   .project-date,

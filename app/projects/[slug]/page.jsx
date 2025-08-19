@@ -16,16 +16,16 @@ const projects = [
     repo: 'https://github.com/connorwotkowicz/DiscogMVProducer',
     image: '/images/fallingrecord.png',
     description: 'A full-stack e-commerce platform built using React, Express, and PostgreSQL.',
-    tech: 'React • Vite • SCSS • PostgreSQL • JWT • Stripe • Jest • React Testing Library • Supertest • Node.js • Express • React Router'
+  tech: 'React • React Router • Vite • SCSS • Node.js • Express • PostgreSQL • Railway • JWT • Stripe • Jest • React Testing Library • Supertest • Google OAuth • Toastify • Discogs API • Helmet • Rate Limiting'
   },
   {
-    slug: 'soundpiece-gle',
-    title: 'SoundPiece: GLE',
-    site: 'https://sound-piece-grand-line.vercel.app',
-    repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line',
-    image: '/images/Frame-2.png',
-    description: 'A creative skill-sharing platform for music producers and artists. Work in an online community to share your chops, your tech, your workstations and more.',
-     tech: 'Next.js • React • SCSS • Context API • Express • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Axios • Vercel • AWS EC2 • Supertest • Jest • Tone.js • React Testing Library',
+    slug: 'practitrak',
+    title: 'PractiTrak',
+    site: 'https://practitrack.vercel.app/',
+    repo: 'https://github.com/connorwotkowicz/Practitrack',
+    image: '/images/trak.png',
+    description: 'A trainer–style app for music mentors to track and guide client progress. It complements in-person lessons and supports fully remote learning. ',
+    tech: 'React • Next.js • TypeScript • SCSS • PostgreSQL • Prisma • Google OAuth • JWT • Vercel • Jest',
   },
   {
     slug: 'beatseq',
@@ -103,7 +103,7 @@ useEffect(() => {
 
   return (
     <main className="project-page" ref={containerRef}>
-      <WaveBackground />
+      {/* <WaveBackground /> */}
 
 
 
@@ -112,7 +112,7 @@ useEffect(() => {
         <p className="project-description" ref={descRef}>{project.description}</p>
 
         <div className="project-links" ref={btnRef}>
-          <a href={project.site} target="_blank" className="project-link-button">Live Site</a>
+          <a href={project.site} target="_blank" className="project-link-button">Site</a>
           <a href={project.repo} target="_blank" className="project-link-button">GitHub</a>
         </div>
 

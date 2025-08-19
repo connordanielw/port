@@ -34,7 +34,7 @@ export default function HeroVisual() {
 </Float>
 
     <ContactShadows
-  position={[0, -1.4, 0]}   
+  position={[0, -1.35, 0]}   
   opacity={0.3}
   scale={5}
   blur={3}

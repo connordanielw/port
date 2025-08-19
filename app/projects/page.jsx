@@ -45,7 +45,6 @@ export default function ProjectsPage() {
 
   const stripeRefs = useRef([]);
 
-  /* entry animation */
   useEffect(() => {
     stripeRefs.current.forEach((stripe, i) => {
       if (!stripe) return;

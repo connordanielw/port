@@ -61,7 +61,8 @@ export default function Navigation() {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link href="/" className="nav-logo">C&nbsp;D&nbsp;W</Link>
+        <Link href="/" className="nav-logo"><img src="../images/logo.png" alt="Site Logo" className="logo" />
+</Link>
 
            
  <div className="nav-links">

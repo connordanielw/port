@@ -4,94 +4,59 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import WaveBackground from '../../app/components/WaveBackground';
 
 export default function ContactPage() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail]       = useState('');
   const [phone, setPhone]       = useState('');
+  const [subject, setSubject]   = useState('');           // 👈 NEW
   const [message, setMessage]   = useState('');
   const nameRef = useRef(null);
   const router  = useRouter();
-    const heroRef= useRef(null);
 
-
-useEffect(() => {
-  import('animejs').then((mod) => {
-    const anime = mod.default || mod;
-    if (!anime?.timeline || !heroRef.current || !ctaRef.current || !featuresRef.current) return;
-
-    const heroLines    = heroRef.current.querySelectorAll('.hero-line');
-    const featureItems = featuresRef.current.querySelectorAll('.feature-item');
-
-    const tl = anime.timeline({ easing: 'easeOutExpo', duration: 800 });
-
-    tl.add({
-      targets: heroLines,
-      translateY: [50, 0],
-      opacity:    [0, 1],
-      delay:      anime.stagger(60),
-    })
-      .add({
-        targets: ctaRef.current,
-        scale:   [0.8, 1],
-        opacity: [0, 1],
-      }, '-=400')
-      .add({
-        targets: featureItems,
-        translateY: [60, 0],
-        opacity:    [0, 1],
-        delay:      anime.stagger(120),
-      }, '-=200');
-  });
-}, []);
-
-  useEffect(() => {
-    nameRef.current?.focus();
-  }, []);
+  useEffect(() => { nameRef.current?.focus(); }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-     
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fullName, email, phone, message }),
+        body: JSON.stringify({
+          fullName,
+          email,
+          phone,
+          // send subject if provided; backend will still have a fallback
+          subject: subject?.trim() || '',
+          message,
+        }),
       });
 
-     
+      if (!res.ok) throw new Error('Failed to send');
+
       toast.success('We have your message and will be in touch soon.', {
         position: 'top-center',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        onClose: () => router.push('/'),  
+        autoClose: 2500,
+        onClose: () => router.push('/'),
       });
 
-      
       setFullName('');
       setEmail('');
       setPhone('');
+      setSubject('');            // 👈 reset
       setMessage('');
     } catch (err) {
-      toast.error('Oops! Message failed. Please try again.');
       console.error(err);
+      toast.error('Oops! Message failed. Please try again.');
     }
   };
 
   return (
     <div className="contact-main">
-        <WaveBackground /> 
       <div className="contact">
         <section>
           <h3>Contact</h3>
-          <div className="contact-instr">
-            <h4></h4>
-          </div>
 
           <form className="contact-form" onSubmit={handleSubmit}>
             <input
@@ -118,14 +83,18 @@ useEffect(() => {
               onChange={(e) => setPhone(e.target.value)}
             />
 
+            <input
+              type="text"
+              placeholder="Subject (optional)"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+            />
+
             <textarea
-              type ="text"
               placeholder="What would you like to know?"
               value={message}
               maxLength={255}
-              onChange={(e) =>
-                e.target.value.length <= 255 && setMessage(e.target.value)
-              }
+              onChange={(e) => setMessage(e.target.value.slice(0, 255))}
               required
             />
 
@@ -136,7 +105,6 @@ useEffect(() => {
         </section>
       </div>
 
-     
       <ToastContainer theme="colored" />
     </div>
   );

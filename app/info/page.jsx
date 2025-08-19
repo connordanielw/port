@@ -3,12 +3,17 @@
 import { useEffect, useRef } from 'react';
 import anime from 'animejs';
 import WaveBackground from '../../app/components/WaveBackground';
-import Link from 'next/link';
-import Image from 'next/image';
 import { badgeMap } from '../components/BadgeMap';
-import BeveledIcon from '../components/BevelProfile.jsx';
 
 const badgeLinks = {
+    JavaScript: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+  TypeScript: 'https://www.typescriptlang.org',
+  Python: 'https://www.python.org',
+  SQL: 'https://en.wikipedia.org/wiki/SQL',
+  HTML5: 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
+  CSS3: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+
+
   React: 'https://reactjs.org',
   'React Router': 'https://reactrouter.com',
   Vite: 'https://vitejs.dev',
@@ -18,6 +23,7 @@ const badgeLinks = {
   Express: 'https://expressjs.com',
   'Express.js': 'https://expressjs.com',
   PostgreSQL: 'https://www.postgresql.org',
+  MongoDB: 'https://www.mongodb.com',
   JWT: 'https://jwt.io',
   Stripe: 'https://stripe.com',
   Jest: 'https://jestjs.io',
@@ -25,20 +31,81 @@ const badgeLinks = {
   Supertest: 'https://github.com/visionmedia/supertest',
   'Next.js': 'https://nextjs.org',
   'Next.js 14': 'https://nextjs.org',
-  'Context API': 'https://reactjs.org/docs/context.html',
+  'Context API': 'https://react.dev/reference/react/useContext',
   Prisma: 'https://www.prisma.io',
   Supabase: 'https://supabase.com',
   'Supabase Storage': 'https://supabase.com/storage',
   bcrypt: 'https://github.com/kelektiv/node.bcrypt.js',
   Axios: 'https://axios-http.com',
   Vercel: 'https://vercel.com',
+  Toastify: 'https://github.com/fkhadra/react-toastify',
   'AWS EC2': 'https://aws.amazon.com/ec2',
+  Railway: 'https://railway.app',
+  cURL: 'https://curl.se',
+  Postman: 'https://www.postman.com',
   'Tone.js': 'https://tonejs.github.io',
+  Figma: 'https://www.figma.com',
   Ableton: 'https://www.ableton.com/en/live/',
   'Pro Tools': 'https://www.avid.com/pro-tools',
   Avid: 'https://www.avid.com',
   Blender: 'https://www.blender.org',
 };
+
+const badgeGroups = {
+    "Languages": [
+    "JavaScript",
+    "TypeScript",
+    "Python",
+    "SQL",
+    "HTML5",
+    "CSS3"
+  ],
+  "Frontend": [
+    "React",
+    "React Router",
+    "Next.js",
+    "Vite",
+    "SCSS",
+    "Figma",
+    "Context API",
+    "Toastify"
+  ],
+  "Backend & Data": [
+    "Node.js",
+    "Express",
+    "PostgreSQL",
+    "MongoDB",
+    "Prisma",
+    "Supabase",
+    "JWT",
+    "bcrypt"
+  ],
+  "Testing": [
+    "Jest",
+    "React Testing Library",
+    "Supertest"
+  ],
+  "Tools & Infrastructure": [
+    "Vercel",
+    "AWS EC2",
+    "Railway",
+    "cURL",
+    "Postman",
+    "Stripe",
+    "Axios",
+
+    "Helmet",
+
+  ],
+  "Audio & Creative": [
+          "Blender",
+    "Ableton",
+    "Pro Tools",
+    "Avid",
+
+  ]
+};
+
 
 export default function AboutPage() {
   const heroRef = useRef(null);
@@ -46,6 +113,7 @@ export default function AboutPage() {
   const bioRef = useRef(null);
   const factsRef = useRef(null);
   const ctaRef = useRef(null);
+  const resumeRef = useRef(null);
 
   useEffect(() => {
     const herolines = heroRef.current?.querySelectorAll('.hero-line') || [];
@@ -53,10 +121,10 @@ export default function AboutPage() {
     const biolines = bioRef.current?.querySelectorAll('.hero-line') || [];
     const factslines =
       factsRef.current?.querySelectorAll(
-        '.facts-header.hero-line, .facts-container.hero-line, .facts-list.hero-line'
+        '.facts-header.hero-line, .facts-container.hero-line, .facts-list.hero-line, .badge-group-heading.hero-line'
       ) || [];
     const badgeIcons =
-      factsRef.current?.querySelectorAll('.facts-badges .badge-icon') || [];
+      factsRef.current?.querySelectorAll('.badge-icon') || [];
 
     anime
       .timeline({ easing: 'easeOutExpo', duration: 800 })
@@ -105,6 +173,14 @@ export default function AboutPage() {
       )
       .add(
         {
+          targets: resumeRef.current,
+          translateY: [30, 0],
+          opacity: [0, 1],
+        },
+        '-=400'
+      )
+      .add(
+        {
           targets: ctaRef.current,
           scale: [0.8, 1],
           opacity: [0, 1],
@@ -115,75 +191,81 @@ export default function AboutPage() {
 
   return (
     <main className="about-page">
-      <WaveBackground />
-<div className="about-container">
-      <section ref={heroRef} className="about-hero">
-        <h1 className="hero-line">Connor D. Wotkowicz</h1>
-        <p className="hero-line">
-          As a Software Engineer with a background in music and design, I build
-          applications that blend creativity and code to deliver clean,
-          enjoyable user experiences.
-        </p>
-      </section>
+      <div className="about-container">
+        <section ref={heroRef} className="about-hero">
+          <h1 className="hero-line">Connor D. Wotkowicz</h1>
+          <p className="hero-line">
+            As a Software Engineer with a background in music and design, I build
+            applications that blend creativity and code to deliver clean,
+            enjoyable user experiences.
+          </p>
+        </section>
 
-      <section ref={storyRef} className="about-story">
+        <div className="i-section-divider" aria-hidden="true"></div>
 
-      </section>
+        <section ref={factsRef} className="about-facts">
+   
 
-      <section ref={bioRef} className="about-extension">
-        <div className="about-extension-inner">
-          <div className="about-extension-bio">
-            <h2 className="extension-title hero-line"></h2>
-            <p className="hero-line"></p>
+          <div className="facts-container hero-line">
+            <div className="facts-list hero-line">
+              <p>
+                <strong>Background:</strong>
+                <br />
+                Full‑stack JS (React, Node, Postgres)
+                <br />
+                Classical musician → engineer
+                <br />
+                Remote or NYC hybrid
+              </p>
+              <p>
+                <strong>Strengths:</strong>
+                <br />
+                Ships fast, tests thoroughly
+                <br />
+                UI craft + backend rigor
+                <br />
+                Collaborative, quality‑focused
+              </p>
+            </div>
+
+            <div className="facts-badges hero-line">
+              {Object.entries(badgeGroups).map(([category, techs]) => (
+                <div key={category} className="badge-group">
+                  <h3 className="badge-group-heading hero-line">{category}</h3>
+                  <div className="badge-list">
+                    {techs.map((tech) => (
+                      <a
+                        key={tech}
+                        href={badgeLinks[tech] || '#'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={tech}
+                      >
+                        <img className="badge-icon" src={badgeMap[tech]} alt={tech} />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* <a
+            ref={resumeRef}
+            href="/Connor_Wotkowicz_Intern_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="resume-link"
+          >
+            Résumé
+          </a> */}
+        </section>
+
+        <div ref={ctaRef} className="about-cta">
+          {/* Example CTA:
+          <a className="primary-btn" href="mailto:you@email.com">Let's work together</a> */}
         </div>
-      </section>
-
-      <div className="i-section-divider" aria-hidden="true"></div>
-      {/* <BeveledIcon /> */}
-
-      <section ref={factsRef} className="about-facts">
-        <div className="facts-header hero-line">
-          {/* <h2 className="facts-title">Overview</h2> */}
-        </div>
-
-        <div className="facts-container hero-line">
-  <div className="facts-list hero-line">
-  <p>
-    <strong>Location:</strong><br />
-    New York, NY
-  </p>
-  <p>
-    <strong>Background:</strong><br /> 
-    Nature-oriented <br></br>Musically trained <br></br> Tech fluent
-  </p>
-  <p>
-    <strong>Strengths:</strong><br />
-    Fast learner <br></br>Detail-driven <br></br> Cross-disciplinary thinker
-  </p>
-</div>
-
-
-          <div className="facts-badges hero-line">
-            {Object.entries(badgeMap).map(([tech, imgUrl]) => (
-              <a
-                key={tech}
-                href={badgeLinks[tech] || '#'}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={tech}
-              >
-                <img className="badge-icon" src={imgUrl} alt={tech} />
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Optional CTA */}
-      <div ref={ctaRef} className="about-cta"></div>
       </div>
     </main>
-    
   );
 }

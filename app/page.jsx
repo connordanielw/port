@@ -4,9 +4,10 @@ import { useEffect, useRef } from 'react';
 import HeroVisual from '../app/components/Hero';
 import { badgeMap } from '../app/components/BadgeMap.jsx';
 import { useRouter } from 'next/navigation';
-import WaveBackground from '../app/components/WaveBackground';
+import CodeTabs from "./components/CodeTabs.jsx";
+
 import SkillsGrid from '../app/components/SkillsGrid';
-import BeveledIcon from './components/Bevel.jsx';
+
 import Link from 'next/link';
 
 // const renderBadges = (techStr) =>
@@ -29,40 +30,44 @@ export default function HomePage() {
   const rootRef = useRef(null);
 
   const projects = [
-    //       {
-    //   title: 'Coming soon...',
-    //       slug: 'CueSketch',
-    //   // date: 'Autumn 2025',
-    //   image: '/images/beatmock.png',
-    //   // tech: 'React • Tone.js • Node.js • Express • PostgreSQL • JWT • Next.js • Vite • SCSS • Supabase • Vercel',
-    //   site: 'https://beatseq.vercel.app',
-    //   // description: 'Web-based sequencer',
-    //   repo: 'https://github.com/connorwotkowicz/BeatSeq'
-    // },
+
     {
       title: 'DiscogMVP',
        slug: 'discogmvp',
       // date: 'May 2025',
       image: './images/vin.png',
-      // tech: 'React • React Router • Vite • SCSS • Node.js • Express • PostgreSQL • JWT • Stripe • Jest • React Testing Library • Supertest',
+      // tech: 'React • React Router • Vite • SCSS • Node.js • Express • PostgreSQL • JWT • Stripe • Jest • React Testing Library • Supertest', Google OAuth, Toastify, Discogs API, Helment, Rate
       site: 'https://discog-mv-producer.vercel.app',
       // description: 'A full-stack e-commerce platform. Backend not currently live',
       repo: 'https://github.com/connorwotkowicz/DiscogMVProducer'
     },
-    // {
-    //   title: 'SoundPiece: GLE',
-    //   slug: 'soundpiece-gle',
-    //   // date: 'June 2025',
-    //   image: '/images/Frame-2.png',
-    //   // tech: 'Next.js • React • SCSS • Context API • Express • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Axios • Vercel • AWS EC2 • Supertest • Jest • Tone.js • React Testing Library',
-    //   site: 'https://sound-piece-grand-line.vercel.app',
-    //   // description: 'Prospective creative skill-trading platform. New! Backend tested, not yet live',
-    //   repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line'
-    // },
+       {
+      title: 'PractiTrak',
+      slug: 'practitrak',
+      date: 'WIP',
+      image: '/images/trak.png',
+      // tech: 'Next.js • React • SCSS • Context API • Express • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Axios • Vercel • AWS EC2 • Supertest • Jest • Tone.js • React Testing Library',
+      site: 'https://practitrack.vercel.app',
+      // description: 'Prospective creative skill-trading platform. New! Backend tested, not yet live',
+      // repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line'
+    },
+              {
+      title: 'CueSketch',
+          slug: 'ontheway',
+
+      date: 'Autumn 2025',
+      image: '/images/cue.png',
+    //   // tech: 'React • Tone.js • Node.js • Express • PostgreSQL • JWT • Next.js • Vite • SCSS • Supabase • Vercel',
+      site: 'https://cuesketch.vercel.app/',
+    //   // description: 'Web-based sequencer',
+    //   repo: 'https://github.com/connorwotkowicz/BeatSeq'
+    },
+     
+
 
   ];
 
-  useEffect(() => {
+   useEffect(() => {
     import('animejs').then((mod) => {
       const anime = mod.default || mod;
       if (!anime?.timeline || !heroRef.current || !ctaRef.current || !featuresRef.current) return;
@@ -77,7 +82,6 @@ export default function HomePage() {
 
   return (
     <div className="home-page" ref={rootRef}>
-      <WaveBackground />
       <main className="home-content">
         <section className="hero-section">
           <div className="hero-visual"><HeroVisual /></div>
@@ -90,8 +94,12 @@ export default function HomePage() {
         <div className="section-divider" aria-hidden="true"></div>
         <SkillsGrid />
 
+{/* <div className ="code-tabs">
+  <CodeTabs />
+</div>
+ */}
+
         <section className="projects-section">
-          {/* <div className="beveled-icon"><BeveledIcon /></div> */}
           <h2 className="section-title animate-on-load" style={{ textAlign: 'center' }}>Recent work</h2>
           <p className="section-subtitle" style={{ textAlign: 'center' }}>
             Projects that combine creativity, technology and purpose.<br />Built with enthusiasm and precision.
@@ -99,37 +107,58 @@ export default function HomePage() {
           <div className="i-section-divider" aria-hidden="true"></div>
 
           <div className="project-grid">
-  {projects.map((p, i) => (
-     <Link key={p.title} href={`/projects/${p.slug}`} className="project-card-link">
-    <div
-      key={p.title}
-      className="project-card animate-slide-up"
-      style={{ animationDelay: `${0.4 + i * 0.15}s` }}
-    >
-      <div className="project-content">
-        <div className="project-header">
-          <h3 className="project-title">{p.title}</h3>
-          <span className="project-date">{p.date}</span>
-        </div>
-        <div className="project-description">{p.description}</div>
-      </div>
+            {projects.map((p, i) =>
+              p.title === 'CueSketch' ? (
+                <a
+                  key={p.title}
+                  href={p.site}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-card-link"
+                >
+                  <div
+                    className="project-card animate-slide-up"
+                    style={{ animationDelay: `${0.4 + i * 0.15}s` }}
+                  >
+                    <div className="project-content">
+                      <div className="project-header">
+                        <h3 className="project-title">{p.title}</h3>
+                        <span className="project-date">{p.date}</span>
+                      </div>
+                      <div className="project-description">{p.description}</div>
+                    </div>
 
-      <div className="project-image-wrapper">
-        <img src={p.image} alt={`${p.title} mockup`} />
-      </div>
+                    <div className="project-image-wrapper">
+                      <img src={p.image} alt={`${p.title} mockup`} />
+                    </div>
+                  </div>
+                </a>
+              ) : (
+                <Link
+                  key={p.title}
+                  href={`/projects/${p.slug}`}
+                  className="project-card-link"
+                >
+                  <div
+                    className="project-card animate-slide-up"
+                    style={{ animationDelay: `${0.4 + i * 0.15}s` }}
+                  >
+                    <div className="project-content">
+                      <div className="project-header">
+                        <h3 className="project-m-title">{p.title}</h3>
+                        <span className="project-m-date">{p.date}</span>
+                      </div>
+                      <div className="project-description">{p.description}</div>
+                    </div>
 
-      <div className="project-content">
-        {/* <div className="project-tech">{renderBadges(p.tech)}</div> */}
-        {/* <div className="project-links">
-          <button onClick={() => window.open(p.site, '_blank')} className="project-link-button">Site</button>
-          <button onClick={() => window.open(p.repo, '_blank')} className="project-link-button">Repo</button>
-        </div> */}
-      </div>
-    </div>
-    </Link>
-  ))}
-</div>
-
+                    <div className="project-image-wrapper">
+                      <img src={p.image} alt={`${p.title}`} />
+                    </div>
+                  </div>
+                </Link>
+              )
+            )}
+          </div>
         </section>
       </main>
     </div>

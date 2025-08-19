@@ -9,11 +9,7 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: `Hello there! I am Connor's robot friend. You can ask me things like:
-• What tech does Connor use?
-• Tell me about recent projects.
-• What’s his design style?
-• Where is he from?`,
+      content: `Hello there! What would you like to know?`
     },
   ]);
   const [loading, setLoading] = useState(false);
@@ -24,11 +20,7 @@ export default function ChatWidget() {
       setMessages([
         {
           role: 'assistant',
-     content: `Hello there! I am Connor's robot friend. You can ask me things like:
-• What tech does Connor use?
-• Tell me about recent projects.
-• What’s his design style?
-• Where is he from?`,
+     content: `Hello there! What would you like to know?`
     },
       ]);
       localStorage.removeItem('connorBotMessages');
@@ -62,7 +54,7 @@ export default function ChatWidget() {
     setLoading(true);
 
     const systemPrompt = generateSystemPrompt(connorData);
-    console.log('🧠 SYSTEM PROMPT:', systemPrompt);
+    console.log('SYSTEM PROMPT:', systemPrompt);
 
     try {
       const res = await fetch('/api/gpt', {
@@ -78,7 +70,7 @@ export default function ChatWidget() {
       });
 
       const data = await res.json();
-      console.log('📦 GPT RESPONSE:', data);
+      console.log('GPT RESPONSE:', data);
 
       const reply = data.choices?.[0]?.message?.content;
 
@@ -119,8 +111,9 @@ export default function ChatWidget() {
       {open && (
         <div className="chat-box">
           <header>
-            <span>Ask Ronoaz</span>
-            <button onClick={() => setOpen(false)}>✕</button>
+            <span>Ask the robot</span>
+            
+            <button className="chat-close" onClick={() => setOpen(false)}>✕</button>
           </header>
 
           <div className="chat-messages">

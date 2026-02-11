@@ -44,7 +44,7 @@ export default function HomePage() {
        {
       title: 'PractiTrak',
       slug: 'practitrak',
-      date: 'WIP',
+      date: 'Summer 2026',
       image: '/images/trak.png',
       // tech: 'Next.js • React • SCSS • Context API • Express • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Axios • Vercel • AWS EC2 • Supertest • Jest • Tone.js • React Testing Library',
       site: 'https://practitrack.vercel.app',
@@ -55,7 +55,7 @@ export default function HomePage() {
       title: 'CueSketch',
           slug: 'ontheway',
 
-      date: 'Autumn 2025',
+      date: 'Autumn 2026',
       image: '/images/cue.png',
     //   // tech: 'React • Tone.js • Node.js • Express • PostgreSQL • JWT • Next.js • Vite • SCSS • Supabase • Vercel',
       site: 'https://cuesketch.vercel.app/',

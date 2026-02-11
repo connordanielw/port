@@ -23,8 +23,9 @@ const projects = [
     title: 'PractiTrak',
     site: 'https://practitrack.vercel.app/',
     repo: 'https://github.com/connorwotkowicz/Practitrack',
+    sub: 'Projected MVP Launch: Spring 2026',
     image: '/images/trak.png',
-    description: 'A trainer–style app for music mentors to track and guide client progress. It complements in-person lessons and supports fully remote learning. ',
+    description: 'A trainer–style app for music mentors to track and guide client progress. It complements in-person lessons and supports fully remote learning.',
     tech: 'React • Next.js • TypeScript • SCSS • PostgreSQL • Prisma • Google OAuth • JWT • Vercel • Jest',
   },
   {
@@ -62,6 +63,7 @@ export default function ProjectPage() {
   const containerRef = useRef(null);
   const titleRef = useRef(null);
   const descRef = useRef(null);
+  const subRef = useRef(null);
   const btnRef = useRef(null);
 
 useEffect(() => {
@@ -75,6 +77,11 @@ useEffect(() => {
     })
     .add({
       targets: descRef.current,
+      translateY: [-20, 0],
+      opacity: [0, 1],
+    }, '-=400')
+    .add({
+      targets: subRef.current,
       translateY: [-20, 0],
       opacity: [0, 1],
     }, '-=400')
@@ -110,12 +117,12 @@ useEffect(() => {
       <div className="project-details">
         <h1 ref={titleRef}>{project.title}</h1>
         <p className="project-description" ref={descRef}>{project.description}</p>
-
+   <p className="project-subtitle" ref={subRef}>{project.sub}</p>
         <div className="project-links" ref={btnRef}>
           <a href={project.site} target="_blank" className="project-link-button">Site</a>
           <a href={project.repo} target="_blank" className="project-link-button">GitHub</a>
         </div>
-
+     
         <div className="project-tech" ref={techRef}>{renderBadges(project.tech)}</div>
 
         <Link href="/"  ref={backRef}  className="back-link">← Back to Base</Link>

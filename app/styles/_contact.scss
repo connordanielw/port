@@ -23,7 +23,7 @@
         border-radius: 6px;
         backdrop-filter: blur(16px) saturate(180%);
         -webkit-backdrop-filter: blur(16px) saturate(180%);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        // box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(255, 255, 255, 0.1);
         padding-top: 40px;
         padding-left: 70px;
@@ -185,14 +185,13 @@
         min-height: auto;
 
         .contact {
-            /* —— make the container disappear —— */
-            background: transparent; /* no fill */
-            border: none; /* no stroke */
-            box-shadow: none; /* no shadow */
-            backdrop-filter: none; /* kill glass blur */
+            background: transparent; 
+            border: none; 
+            box-shadow: none; 
+            backdrop-filter: none;
             -webkit-backdrop-filter: none;
-            padding: 0; /* drop the extra chrome */
-            margin: 2rem 0; /* centre vertically */
+            padding: 0;
+            margin: 2rem 0; 
             width: 100%;
             max-width: 100%;
 
@@ -201,7 +200,7 @@
                 text-align: center;
             }
 
-            /* keep inputs comfortable but not huge */
+      
             input,
             textarea {
                 font-size: 0.95rem;
@@ -219,4 +218,60 @@
             }
         }
     }
+}
+
+.contact-success {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: contact-success-in 0.6s ease forwards;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+@keyframes contact-success-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.success-icon {
+    width: 56px;
+    height: 56px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 28px;
+    margin: 0 auto 12px;
+}
+
+.success-title {
+    font-size: 1.4rem;
+    margin: 0.25rem 0 0.5rem;
+}
+.success-copy {
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.success-actions .success-btn {
+    padding: 0.75rem 1.1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+}
+
+.contact-form.is-sending button[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+.form-error {
+    color: #ff6b6b;
+    margin-top: 0.75rem;
 }

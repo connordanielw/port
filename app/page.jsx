@@ -102,7 +102,7 @@ export default function HomePage() {
         <section className="projects-section">
           <h2 className="section-title animate-on-load" style={{ textAlign: 'center' }}>Recent web design work</h2>
           <p className="section-subtitle" style={{ textAlign: 'center' }}>
-            Projects that combine creativity, technology and purpose.<br />Built with enthusiasm and precision.
+            {/* Projects that combine creativity, technology and purpose.<br />Built with enthusiasm and precision. */}
           </p>
           <div className="i-section-divider" aria-hidden="true"></div>
 

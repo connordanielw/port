@@ -22,10 +22,10 @@ const projects = [
     slug: 'artportfolio',
     title: 'Art Portfolio Example',
     site: 'https://connordanielco.vercel.app/',
-    repo: 'https://github.com/connorwotkowicz/Practitrack',
-    sub: 'Projected MVP Launch: Spring 2026',
+    // repo: 'https://github.com/connorwotkowicz/Practitrack',
+    // sub: 'Projected MVP Launch: Spring 2026',
     image: '/images/trak.png',
-    description: 'A trainer–style app for music mentors to track and guide client progress. It complements in-person lessons and supports fully remote learning.',
+    // description: 'A trainer–style app for music mentors to track and guide client progress. It complements in-person lessons and supports fully remote learning.',
     tech: 'React • Next.js • TypeScript • SCSS • PostgreSQL • Prisma • Google OAuth • JWT • Vercel • Jest',
   },
   {

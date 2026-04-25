@@ -30,7 +30,16 @@ export default function HomePage() {
   const rootRef = useRef(null);
 
   const projects = [
-
+    {
+      title: 'Art Portfolio Example',
+      slug: 'artportfolio',
+      // date: 'Summer 2026',
+      image: '/images/tie.png',
+      // tech: 'Next.js • React • SCSS • Context API • Express • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Axios • Vercel • AWS EC2 • Supertest • Jest • Tone.js • React Testing Library',
+      site: 'https://practitrack.vercel.app',
+      // description: 'Prospective creative skill-trading platform. New! Backend tested, not yet live',
+      // repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line'
+    },
     {
       title: 'DiscogMVP',
        slug: 'discogmvp',
@@ -41,16 +50,7 @@ export default function HomePage() {
       // description: 'A full-stack e-commerce platform. Backend not currently live',
       repo: 'https://github.com/connorwotkowicz/DiscogMVProducer'
     },
-       {
-      title: 'PractiTrak',
-      slug: 'practitrak',
-      date: 'Summer 2026',
-      image: '/images/trak.png',
-      // tech: 'Next.js • React • SCSS • Context API • Express • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Axios • Vercel • AWS EC2 • Supertest • Jest • Tone.js • React Testing Library',
-      site: 'https://practitrack.vercel.app',
-      // description: 'Prospective creative skill-trading platform. New! Backend tested, not yet live',
-      // repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line'
-    },
+   
               {
       title: 'CueSketch',
           slug: 'ontheway',
@@ -100,7 +100,7 @@ export default function HomePage() {
  */}
 
         <section className="projects-section">
-          <h2 className="section-title animate-on-load" style={{ textAlign: 'center' }}>Recent work</h2>
+          <h2 className="section-title animate-on-load" style={{ textAlign: 'center' }}>Recent web design work</h2>
           <p className="section-subtitle" style={{ textAlign: 'center' }}>
             Projects that combine creativity, technology and purpose.<br />Built with enthusiasm and precision.
           </p>

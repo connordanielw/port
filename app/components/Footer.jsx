@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { useTheme} from './ThemeContext';
+// import { useTheme} from './ThemeContext';
 
 
 export default function Footer() {
 
-const { theme, toggleTheme } = useTheme();
+// const { theme, toggleTheme } = useTheme();
 
   return (
     <footer className="app-footer">
@@ -21,7 +21,7 @@ const { theme, toggleTheme } = useTheme();
             Contact
           </Link>
         </div>
-        <button
+        {/* <button
   className="theme-toggle-button"
   onClick={toggleTheme}           
   aria-label="Toggle theme"
@@ -31,7 +31,7 @@ const { theme, toggleTheme } = useTheme();
       ? '\u2600\uFE0E'   
       : '\u263E\uFE0E'} 
   </span>
-</button>
+</button> */}
         <p className="footer-text"> {new Date().getFullYear()} Connor D Wotkowicz | connorwotkowicz@gmail.com</p>
       </div>
           </main>

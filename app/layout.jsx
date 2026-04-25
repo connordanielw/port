@@ -4,7 +4,7 @@ import Navigation from '../app/components/Navigation.jsx';
 import Footer from '../app/components/Footer.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ThemeProvider } from '../app/components/ThemeContext.jsx';
+// import { ThemeProvider } from '../app/components/ThemeContext.jsx';
 import './styles/App.scss';
 import ChatWidget from '../app//components/Chat';
 
@@ -46,14 +46,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head />
-      <body>
-        <ThemeProvider>
+     <body data-theme="dark">
+
           <ToastContainer />
           <Navigation />
           <main>{children}</main>
                 {/* <ChatWidget /> */}
           <Footer />
-        </ThemeProvider>
+
       </body>
     </html>
   );

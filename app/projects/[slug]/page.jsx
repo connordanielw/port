@@ -19,9 +19,9 @@ const projects = [
   tech: 'React • React Router • Vite • SCSS • Node.js • Express • PostgreSQL • Railway • JWT • Stripe • Jest • React Testing Library • Supertest • Google OAuth • Toastify • Discogs API • Helmet • Rate Limiting'
   },
   {
-    slug: 'practitrak',
-    title: 'PractiTrak',
-    site: 'https://practitrack.vercel.app/',
+    slug: 'artportfolio',
+    title: 'Art Portfolio Example',
+    site: 'https://connordanielco.vercel.app/',
     repo: 'https://github.com/connorwotkowicz/Practitrack',
     sub: 'Projected MVP Launch: Spring 2026',
     image: '/images/trak.png',

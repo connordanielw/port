@@ -3,14 +3,14 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTheme} from './ThemeContext';
+// import { useTheme} from './ThemeContext';
 
 
 
 export default function Navigation() {
   const pathname  = usePathname();
   const [open, setOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  // const { theme, toggleTheme } = useTheme();
   const menuRef   = useRef(null);   
   const burgerRef = useRef(null);  
   const timerRef  = useRef(null);   
@@ -61,7 +61,7 @@ export default function Navigation() {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link href="/" className="nav-logo"><img src="../images/logo.png" alt="Site Logo" className="logo" />
+        <Link href="/" className="nav-logo"><img src="./images/logo.png" alt="Site Logo" className="logo" />
 </Link>
 
            

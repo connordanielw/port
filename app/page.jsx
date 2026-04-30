@@ -51,17 +51,17 @@ export default function HomePage() {
       repo: 'https://github.com/connorwotkowicz/DiscogMVProducer'
     },
    
-              {
-      title: 'CueSketch',
-          slug: 'ontheway',
+    //           {
+    //   title: 'CueSketch',
+    //       slug: 'ontheway',
 
-      date: 'Autumn 2026',
-      image: '/images/cue.png',
-    //   // tech: 'React • Tone.js • Node.js • Express • PostgreSQL • JWT • Next.js • Vite • SCSS • Supabase • Vercel',
-      site: 'https://cuesketch.vercel.app/',
-    //   // description: 'Web-based sequencer',
-    //   repo: 'https://github.com/connorwotkowicz/BeatSeq'
-    },
+    //   date: 'Autumn 2026',
+    //   image: '/images/cue.png',
+    // //   // tech: 'React • Tone.js • Node.js • Express • PostgreSQL • JWT • Next.js • Vite • SCSS • Supabase • Vercel',
+    //   site: 'https://cuesketch.vercel.app/',
+    // //   // description: 'Web-based sequencer',
+    // //   repo: 'https://github.com/connorwotkowicz/BeatSeq'
+    // },
      
 
 

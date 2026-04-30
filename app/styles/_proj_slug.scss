@@ -92,7 +92,7 @@
   }
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .project-details h1 {
     font-size: 2rem;
@@ -105,5 +105,142 @@
   .project-links .project-link-button {
     font-size: 0.9rem;
     padding: 0.6rem 1.2rem;
+  }
+}
+
+
+
+
+
+
+
+/* ================= Project Video Section ================= */
+
+.project-video-wrapper {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  background: var(--input-bg);
+}
+
+/* video itself */
+.project-video {
+  width: 100%;
+  height: 55vh;
+  object-fit: cover;
+  object-position: top center;
+
+  /* 👇 overall tone control */
+  filter: brightness(0.7) contrast(1.05);
+
+  display: block;
+}
+
+/* 🎞️ subtle film grain */
+.project-video-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+
+  background-size: 200px 200px;
+}
+
+/* 🌒 natural cinematic fade (top light, bottom heavier) */
+.project-video-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    var(--input-bg) 0%,
+    rgba(0, 0, 0, 0.35) 8%,
+    rgba(0, 0, 0, 0.08) 22%,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.6) 92%,
+    var(--input-bg) 100%
+  );
+}
+
+@media (max-width: 768px) {
+  .project-page {
+    padding: 5.5rem 1rem 3rem;
+  }
+
+  .project-details,
+  .simple-project-details {
+    max-width: 100%;
+  }
+
+  .project-go-site {
+    min-width: 180px;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-details h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .project-description {
+    max-width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .project-video-wrapper {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-video {
+    height: 24vh;
+    min-height: 180px;
+    object-position: top center;
+  }
+
+  .back-link {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-page {
+    padding: 5rem 0.85rem 2.5rem;
+  }
+
+  .project-go-site {
+    width: min(100%, 260px);
+    min-width: unset;
+    border-radius: 12px;
+  }
+
+  .project-video {
+    height: 22vh;
+    min-height: 150px;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
   }
 }

@@ -1,4 +1,4 @@
-// ─ Entrance Animation ─────────────────────────────────────────────────────
+
 @keyframes fade-slide-down {
   from {
     opacity: 0;
@@ -10,9 +10,9 @@
   }
 }
 
-// src/styles/_code-tabs.scss
+
 .code-tabs {
-  // ─ Tabs row ─────────────────────────────────────────────────────
+
   .tab-list {
     display: flex;
     gap: 0.75rem;
@@ -21,7 +21,7 @@
     border: 1px solid rgba(128, 128, 128, 0.37);
     border-radius: 4px 4px 0 0;
 
-    /* allow horizontal scrolling on narrow viewports */
+
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 

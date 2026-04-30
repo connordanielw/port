@@ -48,3 +48,41 @@ body[data-theme="dark"] {
 }
 
 
+
+
+
+body[data-theme="dark"] {
+  background: #000;
+  position: relative;
+}
+
+/* subtle moving blue glow */
+body[data-theme="dark"]::before {
+  content: '';
+  position: fixed;
+  inset: -40%;
+  pointer-events: none;
+  z-index: 0;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(80, 150, 255, 0.15),
+    transparent 40%
+  );
+
+  animation: glowMove 20s ease-in-out infinite;
+}
+
+/* keep your content above it */
+.home-page,
+.project-page,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes glowMove {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(10%, -5%) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+}

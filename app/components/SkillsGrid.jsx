@@ -37,10 +37,9 @@ export default function SkillsGrid() {
 
 
 return (
+  
   <section className="skills-section">
-    <p className="hero-description animate-slide-up">
-      Full-stack web development with visual fluency 
-    </p>
+  
     <h2 className="skills-title animate-on-load">Core Tech</h2>
 
     <ul className="skills-grid">

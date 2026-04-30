@@ -1,4 +1,3 @@
-
 .navbar {
     height: 60px;
     position: fixed;
@@ -24,9 +23,6 @@
         backdrop-filter 0.3s ease;
 }
 
-
-
-
 .nav-container {
     max-width: 1196px;
     width: 100%;
@@ -37,30 +33,24 @@
 }
 
 .logo {
-  width: 80px;
-  transition: filter 0.3s ease;
-
-
+    width: 70px;
+    transition: filter 0.3s ease;
 }
 
 /* Light theme: leave it black */
 body[data-theme="light"] .logo {
-  filter: none;
+    filter: none;
 }
 
 /* Dark theme: flip black → white */
 body[data-theme="dark"] .logo {
-  filter: invert(1);
+    filter: invert(1);
 }
-
-
 
 .nav-logo {
     font-size: 20px;
     color: var(--text-color);
- 
 }
-
 
 .nav-links {
     display: flex;
@@ -69,7 +59,7 @@ body[data-theme="dark"] .logo {
 }
 
 .nav-item {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-color);
     text-decoration: none;
     transition: opacity 0.3s ease;
@@ -80,28 +70,27 @@ body[data-theme="dark"] .logo {
     opacity: 0.7;
 }
 
-
 .hamburger {
-  display: none;
-  font-size: 32px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-color);
-  padding-right: 24px;
-  z-index: 1001;
+    display: none;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    padding-right: 24px;
+    z-index: 1001;
 
-  /* Add these to suppress mobile tap artifacts */
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
+    /* Add these to suppress mobile tap artifacts */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
 }
 
 .hamburger:focus,
 .hamburger:active {
-  outline: none;
-  box-shadow: none;
-  background: none;
+    outline: none;
+    box-shadow: none;
+    background: none;
 }
 
 .mobile-menu {

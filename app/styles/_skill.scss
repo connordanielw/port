@@ -21,7 +21,7 @@
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(7, minmax(32px, 1fr));
-    gap: 2rem 2.5rem;
+    gap: 2rem 3.5rem;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -30,11 +30,11 @@
     margin-bottom: 4rem;
 
     @media (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 0;
+      grid-template-columns: repeat(2, 2fr);
+      column-gap: 1.5rem;
       padding: 0 !important;
 
-      row-gap: 1.5rem;
+      row-gap: 2rem;
     }
 
     @media (max-width: 500px) {

@@ -23,7 +23,7 @@ export default function SkillsGrid() {
 
     { name: 'GitHub',       src: 'https://api.iconify.design/simple-icons:github.svg',          url: 'https://github.com/' },
     { name: 'Vercel',       src: 'https://api.iconify.design/simple-icons:vercel.svg',          url: 'https://vercel.com/' },
-    { name: 'Supabase',     src: './images/supabase.png',                                       url: 'https://supabase.com/' },
+    { name: 'Supabase',     src: '/images/supabase.png',                                       url: 'https://supabase.com/' },
     // { name: 'Railway',      src: 'https://api.iconify.design/simple-icons:railway.svg',         url: 'https://railway.app/' },
     // { name: 'AWS',          src: './images/aws.png',                                             url: 'https://aws.amazon.com/' },
 // { name: 'Go',           src: 'https://api.iconify.design/simple-icons:go.svg',             url: 'https://go.dev/' },

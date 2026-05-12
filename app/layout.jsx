@@ -14,7 +14,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'Connor D. Wotkowicz',
+  title: 'Connor D Wotkowicz',
   description:
     'Portfolio of Connor D. Wotkowicz — full-stack developer & creative technologist.',
   manifest: '/site.webmanifest',

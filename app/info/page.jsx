@@ -1,20 +1,20 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import anime from 'animejs';
-import { badgeMap } from '../components/BadgeMap';
 
 const skills = [
-  'JavaScript',
-  'TypeScript',
-  'React',
-  'Next.js',
-  'SCSS',
-  'Figma',
-  'Node.js',
-  'PostgreSQL',
-  'Vercel',
-  'Jest',
+  { name: 'JavaScript',  icon: 'https://api.iconify.design/simple-icons:javascript.svg', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+  { name: 'TypeScript',  icon: 'https://api.iconify.design/simple-icons:typescript.svg', url: 'https://www.typescriptlang.org/' },
+  { name: 'React',       icon: 'https://api.iconify.design/simple-icons:react.svg',       url: 'https://react.dev/' },
+  { name: 'Next.js',     icon: 'https://api.iconify.design/simple-icons:nextdotjs.svg',   url: 'https://nextjs.org/' },
+  { name: 'SCSS',        icon: 'https://api.iconify.design/simple-icons:sass.svg',        url: 'https://sass-lang.com/' },
+  { name: 'Figma',       icon: 'https://api.iconify.design/simple-icons:figma.svg',       url: 'https://www.figma.com/' },
+  { name: 'Node.js',     icon: 'https://api.iconify.design/simple-icons:nodedotjs.svg',   url: 'https://nodejs.org/' },
+  { name: 'PostgreSQL',  icon: 'https://api.iconify.design/simple-icons:postgresql.svg',  url: 'https://www.postgresql.org/' },
+  { name: 'Vercel',      icon: 'https://api.iconify.design/simple-icons:vercel.svg',      url: 'https://vercel.com/' },
+  { name: 'Jest',        icon: 'https://api.iconify.design/simple-icons:jest.svg',        url: 'https://jestjs.io/' },
 ];
 
 const capabilities = [
@@ -55,20 +55,23 @@ export default function AboutPage() {
   return (
     <main className="about-page" ref={pageRef}>
       <section className="about-shell">
+        <Link href="/" className="pp-back-link about-back about-animate">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Back to main
+        </Link>
         <div className="about-kicker about-animate">
           Web Developer / Frontend Systems / Site Editing
         </div>
 
         <section className="about-hero about-animate">
           <h1>
-            I build and maintain clean, expressive web experiences.
+Connor D. Wotkowicz
           </h1>
 
           <p>
-            I’m a web developer focused on frontend architecture, polished user
-            interfaces, and practical site management. My work combines clean
-            component structure, responsive styling, thoughtful editing, and a
-            strong eye for how digital spaces should feel.
+          Frontend developer focused on component architecture, responsive design, and UX-driven site management.
           </p>
         </section>
 
@@ -108,12 +111,16 @@ export default function AboutPage() {
 
           <div className="tool-grid">
             {skills.map((skill) => (
-              <div className="tool-pill" key={skill}>
-                {badgeMap[skill] && (
-                  <img src={badgeMap[skill]} alt={`${skill} icon`} />
-                )}
-                <span>{skill}</span>
-              </div>
+              <a
+                className="tool-pill"
+                key={skill.name}
+                href={skill.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={skill.icon} alt={`${skill.name} icon`} />
+                <span>{skill.name}</span>
+              </a>
             ))}
           </div>
         </section>

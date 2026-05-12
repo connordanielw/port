@@ -32,7 +32,7 @@ export default function Footer() {
       : '\u263E\uFE0E'} 
   </span>
 </button> */}
-        <p className="footer-text"> {new Date().getFullYear()} Connor D Wotkowicz | connorwotkowicz@gmail.com</p>
+        <p className="footer-text"> © {new Date().getFullYear()} CDW</p>
       </div>
           </main>
     </footer>

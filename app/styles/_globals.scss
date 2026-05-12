@@ -91,6 +91,26 @@ button:focus-visible {
   }
 }
 
+.pp-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #888;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  text-decoration: none;
+
+  &:hover {
+    color: #e8e4dc;
+  }
+}
+
 .action-btn {
   background-color: transparent;
   color: black;

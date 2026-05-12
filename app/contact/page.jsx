@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import anime from 'animejs';
 
 export default function ContactPage() {
   const [fullName, setFullName] = useState('');
@@ -12,10 +14,25 @@ export default function ContactPage() {
   const [status, setStatus]     = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
   const [errorMsg, setErrorMsg] = useState('');
   const [firstName, setFirstName] = useState('');
-  const nameRef = useRef(null);
-  const router  = useRouter();
+  const nameRef    = useRef(null);
+  const contactRef = useRef(null);
+  const router     = useRouter();
 
   useEffect(() => { nameRef.current?.focus(); }, []);
+
+  useEffect(() => {
+    if (!contactRef.current) return;
+    const items = contactRef.current.querySelectorAll('.contact-animate');
+    if (!items.length) return;
+    anime({
+      targets: items,
+      opacity: [0, 1],
+      translateY: [20, 0],
+      delay: anime.stagger(80),
+      duration: 750,
+      easing: 'easeOutExpo',
+    });
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,9 +77,15 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="contact-main">
+    <div className="contact-main" ref={contactRef}>
       <div className="contact">
-        <section>
+        <Link href="/" className="pp-back-link contact-animate">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Back to main
+        </Link>
+        <section className="contact-animate">
           <h3>Contact</h3>
 
           {status === 'success' ? (

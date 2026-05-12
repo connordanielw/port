@@ -31,24 +31,22 @@ export default function HomePage() {
 
   const projects = [
     {
-      title: 'Art Portfolio Example',
+      title: 'codaniel | studio',
+      subtitle: 'Design & Development · 2026',
       slug: 'artportfolio',
-      // date: 'Summer 2026',
-      image: '/images/tie.png',
-      // tech: 'Next.js • React • SCSS • Context API • Express • Prisma • PostgreSQL • Supabase • JWT • bcrypt • Axios • Vercel • AWS EC2 • Supertest • Jest • Tone.js • React Testing Library',
-      site: 'https://practitrack.vercel.app',
-      // description: 'Prospective creative skill-trading platform. New! Backend tested, not yet live',
-      // repo: 'https://github.com/connorwotkowicz/SoundPiece_Grand-line'
+      image: '/images/codan.png',
     },
     {
-      title: 'DiscogMVP',
-       slug: 'discogmvp',
-      // date: 'May 2025',
-      image: './images/vin.png',
-      // tech: 'React • React Router • Vite • SCSS • Node.js • Express • PostgreSQL • JWT • Stripe • Jest • React Testing Library • Supertest', Google OAuth, Toastify, Discogs API, Helment, Rate
-      site: 'https://discog-mv-producer.vercel.app',
-      // description: 'A full-stack e-commerce platform. Backend not currently live',
-      repo: 'https://github.com/connorwotkowicz/DiscogMVProducer'
+      title: 'DiscogMVP | ecommerce',
+      subtitle: 'Full-Stack Development · 2025',
+      slug: 'discogmvp',
+      image: '/images/vin.png',
+    },
+    {
+      title: 'Cadence | music library',
+      subtitle: 'Full-Stack Development · 2025',
+      slug: 'cadence',
+      image: '/images/cadence.png',
     },
    
     //           {
@@ -87,7 +85,7 @@ export default function HomePage() {
           <div className="hero-visual"><HeroVisual /></div>
           <div className="hero-text">
             <h1 className="hero-title animate-on-load">Connor D. Wotkowicz</h1>
-            <p className="hero-description animate-slide-up">Software Engineer | New York, NY</p>
+            <p className="hero-description animate-slide-up"> Creative Developer | New York, NY</p>
           </div>
         </section>
 
@@ -107,57 +105,26 @@ export default function HomePage() {
           <div className="i-section-divider" aria-hidden="true"></div>
 
           <div className="project-grid">
-            {projects.map((p, i) =>
-              p.title === 'CueSketch' ? (
-                <a
-                  key={p.title}
-                  href={p.site}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-card-link"
+            {projects.map((p, i) => (
+              <Link
+                key={p.slug}
+                href={`/projects/${p.slug}`}
+                className="project-card-link"
+              >
+                <div
+                  className="project-card animate-slide-up"
+                  style={{ animationDelay: `${0.4 + i * 0.15}s` }}
                 >
-                  <div
-                    className="project-card animate-slide-up"
-                    style={{ animationDelay: `${0.4 + i * 0.15}s` }}
-                  >
-                    <div className="project-content">
-                      <div className="project-header">
-                        <h3 className="project-title">{p.title}</h3>
-                        <span className="project-date">{p.date}</span>
-                      </div>
-                      <div className="project-description">{p.description}</div>
-                    </div>
-
-                    <div className="project-image-wrapper">
-                      <img src={p.image} alt={`${p.title} mockup`} />
-                    </div>
+                  <div className="project-image-wrapper">
+                    <img src={p.image} alt={p.title} />
                   </div>
-                </a>
-              ) : (
-                <Link
-                  key={p.title}
-                  href={`/projects/${p.slug}`}
-                  className="project-card-link"
-                >
-                  <div
-                    className="project-card animate-slide-up"
-                    style={{ animationDelay: `${0.4 + i * 0.15}s` }}
-                  >
-                    <div className="project-content">
-                      <div className="project-header">
-                        <h3 className="project-m-title">{p.title}</h3>
-                        <span className="project-m-date">{p.date}</span>
-                      </div>
-                      <div className="project-description">{p.description}</div>
-                    </div>
-
-                    <div className="project-image-wrapper">
-                      <img src={p.image} alt={`${p.title}`} />
-                    </div>
+                  <div className="project-card-label">
+                    <h3 className="project-card-title">{p.title}</h3>
+                    <span className="project-card-sub">{p.subtitle}</span>
                   </div>
-                </Link>
-              )
-            )}
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
       </main>

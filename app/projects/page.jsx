@@ -7,6 +7,18 @@ import anime from 'animejs';
 export default function ProjectsPage() {
   const projects = [
     {
+      title: 'Cadence',
+      url: 'https://cadence-production-bea1.up.railway.app',
+      date: 'June 2025',
+      repo: 'https://github.com/connordanielw/cadence',
+      bullets: [
+        'AI-powered music library with semantic search — upload audio or sheet music, describe it, find it by feel',
+        'Natural language search backed by VoyageAI vector embeddings and pgvector cosine similarity',
+        'Claude (Anthropic) expands user descriptions into rich searchable paragraphs',
+        'Stack: Next.js 15, FastAPI, PostgreSQL + pgvector, Clerk auth, VoyageAI, Anthropic Claude, Railway, Vercel',
+      ],
+    },
+    {
       title: "DiscogMVP",
       url: "https://discog-mv-producer.vercel.app",
       date: 'May 2025',

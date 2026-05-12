@@ -40,7 +40,7 @@ export default function HomePage() {
       title: 'Cadence | music library',
       subtitle: 'Full-Stack Development · 2025',
       slug: 'cadence',
-      image: '/images/cadence.png',
+      image: '/images/cadencecover.png',
     },
     {
       title: 'DiscogMVP | ecommerce',

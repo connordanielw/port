@@ -18,7 +18,7 @@ const projects = [
   {
     slug: 'cadence',
     title: 'Cadence',
-    site: 'https://cadence-production-bea1.up.railway.app',
+    site: 'https://cadence-mauve-ten.vercel.app',
     year: '2025',
     role: 'Full-Stack Development',
     description: 'An AI-powered music library. Upload audio or sheet music, describe what it sounds like, and search your collection by feel — "dark driving strings", "calm impressionist piano".',

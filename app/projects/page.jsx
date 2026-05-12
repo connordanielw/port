@@ -8,7 +8,7 @@ export default function ProjectsPage() {
   const projects = [
     {
       title: 'Cadence',
-      url: 'https://cadence-production-bea1.up.railway.app',
+      url: 'https://cadence-mauve-ten.vercel.app',
       date: 'June 2025',
       repo: 'https://github.com/connordanielw/cadence',
       bullets: [

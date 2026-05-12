@@ -37,16 +37,16 @@ export default function HomePage() {
       image: '/images/codan.png',
     },
     {
-      title: 'DiscogMVP | ecommerce',
-      subtitle: 'Full-Stack Development · 2025',
-      slug: 'discogmvp',
-      image: '/images/vin.png',
-    },
-    {
       title: 'Cadence | music library',
       subtitle: 'Full-Stack Development · 2025',
       slug: 'cadence',
       image: '/images/cadence.png',
+    },
+    {
+      title: 'DiscogMVP | ecommerce',
+      subtitle: 'Full-Stack Development · 2025',
+      slug: 'discogmvp',
+      image: '/images/vin.png',
     },
    
     //           {

@@ -34,7 +34,7 @@ export default function HomePage() {
       title: 'codaniel | studio',
       subtitle: 'Design & Development · 2026',
       slug: 'artportfolio',
-      image: '/images/codan.png',
+      image: '/images/newstudio.png',
     },
     {
       title: 'Cadence | music library',

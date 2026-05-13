@@ -12,7 +12,7 @@ export default function ProjectsPage() {
       date: 'June 2025',
       repo: 'https://github.com/connordanielw/cadence',
       bullets: [
-        'AI-powered music library with semantic search — upload audio or sheet music, describe it, find it by feel',
+        'AI-powered music library with semantic search. Upload audio or sheet music, describe it, find it by feel',
         'Natural language search backed by VoyageAI vector embeddings and pgvector cosine similarity',
         'Claude (Anthropic) expands user descriptions into rich searchable paragraphs',
         'Stack: Next.js 15, FastAPI, PostgreSQL + pgvector, Clerk auth, VoyageAI, Anthropic Claude, Railway, Vercel',

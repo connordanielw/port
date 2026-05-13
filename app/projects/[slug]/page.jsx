@@ -22,7 +22,7 @@ const projects = [
     video: '/videos/cadence.mp4',
     year: '2025',
     role: 'Full-Stack Development',
-    description: 'An AI-powered music library. Upload audio or sheet music, describe what it sounds like, and search your collection by feel — "dark driving strings", "calm impressionist piano".',
+    description: 'An AI-powered music library. Upload audio or sheet music, describe what it sounds like, and search your collection by feel.',
     stack: ['Next.js', 'TypeScript', 'FastAPI', 'Python', 'PostgreSQL', 'pgvector', 'Claude API', 'Voyage AI', 'Vercel'],
   },
   {

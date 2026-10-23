@@ -75,55 +75,56 @@ export default function Navigation() {
         <Link href="/" className="nav-logo"><img src="/images/logo.png" alt="Site Logo" className="logo" />
 </Link>
 
-           
- <div className="nav-links">
-          {links.map(({ href, label }) => (
-        <Link
-          key={href}
-          href={href}
-          className={`nav-item${pathname === href ? ' active' : ''}`}
-        >
-          {label}
-        </Link>
-          ))}
-        </div>
-        <div className="lang-dropdown" ref={langRef}>
-          <button
-            type="button"
-            className="lang-toggle"
-            onClick={() => setLangOpen((o) => !o)}
-            aria-label={t.toggleLanguage}
-            aria-haspopup="listbox"
-            aria-expanded={langOpen}
+        <div className="nav-right">
+          <div className="nav-links">
+            {links.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            className={`nav-item${pathname === href ? ' active' : ''}`}
           >
-            {lang.toUpperCase()}
+            {label}
+          </Link>
+            ))}
+          </div>
+          <div className="lang-dropdown" ref={langRef}>
+            <button
+              type="button"
+              className="lang-toggle"
+              onClick={() => setLangOpen((o) => !o)}
+              aria-label={t.toggleLanguage}
+              aria-haspopup="listbox"
+              aria-expanded={langOpen}
+            >
+              {lang.toUpperCase()}
+            </button>
+            {langOpen && (
+              <ul className="lang-menu" role="listbox">
+                {LANGUAGES.map((l) => (
+                  <li key={l}>
+                    <button
+                      type="button"
+                      className={`lang-option${l === lang ? ' active' : ''}`}
+                      role="option"
+                      aria-selected={l === lang}
+                      onClick={() => selectLang(l)}
+                    >
+                      {l.toUpperCase()}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <button
+            ref={burgerRef}
+            className="hamburger"
+            onClick={() => setOpen(o => !o)}
+            aria-label={t.toggleNav}
+          >
+            ☰
           </button>
-          {langOpen && (
-            <ul className="lang-menu" role="listbox">
-              {LANGUAGES.map((l) => (
-                <li key={l}>
-                  <button
-                    type="button"
-                    className={`lang-option${l === lang ? ' active' : ''}`}
-                    role="option"
-                    aria-selected={l === lang}
-                    onClick={() => selectLang(l)}
-                  >
-                    {l.toUpperCase()}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
-        <button
-          ref={burgerRef}
-          className="hamburger"
-          onClick={() => setOpen(o => !o)}
-          aria-label={t.toggleNav}
-        >
-          ☰
-        </button>
       </div>
 
       <div

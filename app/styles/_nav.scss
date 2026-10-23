@@ -53,6 +53,11 @@ body[data-theme="dark"] .logo {
     color: var(--text-color);
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links {
     display: flex;
     align-items: center;

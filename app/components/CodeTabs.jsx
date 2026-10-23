@@ -16,21 +16,21 @@ const customOneDark = {
 };
 
 const TABS = [
-  { id: "javascript", name: "JavaScript", src: "https://api.iconify.design/simple-icons:javascript.svg", url: "https://www.javascript.com/" },
-  { id: "typescript", name: "TypeScript", src: "https://api.iconify.design/simple-icons:typescript.svg", url: "https://www.typescriptlang.org/" },
-  { id: "python",     name: "Python",     src: "https://api.iconify.design/simple-icons:python.svg",     url: "https://www.python.org/" },
-  { id: "go",         name: "Go",         src: "https://api.iconify.design/simple-icons:go.svg",         url: "https://go.dev/" },
-  { id: "react",      name: "React",      src: "https://api.iconify.design/simple-icons:react.svg",      url: "https://reactjs.org/" },
-  { id: "nextjs",     name: "Next.js",    src: "https://api.iconify.design/simple-icons:nextdotjs.svg",  url: "https://nextjs.org/" },
-  { id: "postgresql", name: "PostgreSQL", src: "https://api.iconify.design/simple-icons:postgresql.svg", url: "https://www.postgresql.org/" },
-  { id: "sass",       name: "Sass / SCSS",src: "https://api.iconify.design/simple-icons:sass.svg",       url: "https://sass-lang.com/" },
-  { id: "nodejs",     name: "Node.js",    src: "https://api.iconify.design/simple-icons:nodedotjs.svg",   url: "https://nodejs.org/" },
-  { id: "express",    name: "Express",    src: "https://api.iconify.design/simple-icons:express.svg",     url: "https://expressjs.com/" },
-  { id: "mongodb",    name: "MongoDB",    src: "https://api.iconify.design/simple-icons:mongodb.svg",     url: "https://www.mongodb.com/" },
-  { id: "vercel",     name: "Vercel Fn",  src: "https://api.iconify.design/simple-icons:vercel.svg",      url: "https://vercel.com/docs/serverless-functions" },
-  { id: "supabase",   name: "Supabase Fn",src: "https://api.iconify.design/simple-icons:supabase.svg",    url: "https://supabase.com/docs/guides/functions" },
-  { id: "aws",        name: "AWS EC2",    src: "https://api.iconify.design/simple-icons:amazonaws.svg",   url: "https://docs.aws.amazon.com/ec2/index.html" },
-  { id: "curl",       name: "cURL",       src: "https://api.iconify.design/simple-icons:curl.svg",        url: "https://curl.se/docs/manpage.html" },
+  { id: "javascript", name: "JavaScript", src: "https://api.iconify.design/simple-icons/javascript.svg", url: "https://www.javascript.com/" },
+  { id: "typescript", name: "TypeScript", src: "https://api.iconify.design/simple-icons/typescript.svg", url: "https://www.typescriptlang.org/" },
+  { id: "python",     name: "Python",     src: "https://api.iconify.design/simple-icons/python.svg",     url: "https://www.python.org/" },
+  { id: "go",         name: "Go",         src: "https://api.iconify.design/simple-icons/go.svg",         url: "https://go.dev/" },
+  { id: "react",      name: "React",      src: "https://api.iconify.design/simple-icons/react.svg",      url: "https://reactjs.org/" },
+  { id: "nextjs",     name: "Next.js",    src: "https://api.iconify.design/simple-icons/nextdotjs.svg",  url: "https://nextjs.org/" },
+  { id: "postgresql", name: "PostgreSQL", src: "https://api.iconify.design/simple-icons/postgresql.svg", url: "https://www.postgresql.org/" },
+  { id: "sass",       name: "Sass / SCSS",src: "https://api.iconify.design/simple-icons/sass.svg",       url: "https://sass-lang.com/" },
+  { id: "nodejs",     name: "Node.js",    src: "https://api.iconify.design/simple-icons/nodedotjs.svg",   url: "https://nodejs.org/" },
+  { id: "express",    name: "Express",    src: "https://api.iconify.design/simple-icons/express.svg",     url: "https://expressjs.com/" },
+  { id: "mongodb",    name: "MongoDB",    src: "https://api.iconify.design/simple-icons/mongodb.svg",     url: "https://www.mongodb.com/" },
+  { id: "vercel",     name: "Vercel Fn",  src: "https://api.iconify.design/simple-icons/vercel.svg",      url: "https://vercel.com/docs/serverless-functions" },
+  { id: "supabase",   name: "Supabase Fn",src: "https://api.iconify.design/simple-icons/supabase.svg",    url: "https://supabase.com/docs/guides/functions" },
+  { id: "aws",        name: "AWS EC2",    src: "https://api.iconify.design/simple-icons/amazonaws.svg",   url: "https://docs.aws.amazon.com/ec2/index.html" },
+  { id: "curl",       name: "cURL",       src: "https://api.iconify.design/simple-icons/curl.svg",        url: "https://curl.se/docs/manpage.html" },
 ];
 
 const SNIPPETS = {

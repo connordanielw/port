@@ -5,16 +5,16 @@ import Link from 'next/link';
 import anime from 'animejs';
 
 const skills = [
-  { name: 'JavaScript',  icon: 'https://api.iconify.design/simple-icons:javascript.svg', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
-  { name: 'TypeScript',  icon: 'https://api.iconify.design/simple-icons:typescript.svg', url: 'https://www.typescriptlang.org/' },
-  { name: 'React',       icon: 'https://api.iconify.design/simple-icons:react.svg',       url: 'https://react.dev/' },
-  { name: 'Next.js',     icon: 'https://api.iconify.design/simple-icons:nextdotjs.svg',   url: 'https://nextjs.org/' },
-  { name: 'SCSS',        icon: 'https://api.iconify.design/simple-icons:sass.svg',        url: 'https://sass-lang.com/' },
-  { name: 'Figma',       icon: 'https://api.iconify.design/simple-icons:figma.svg',       url: 'https://www.figma.com/' },
-  { name: 'Node.js',     icon: 'https://api.iconify.design/simple-icons:nodedotjs.svg',   url: 'https://nodejs.org/' },
-  { name: 'PostgreSQL',  icon: 'https://api.iconify.design/simple-icons:postgresql.svg',  url: 'https://www.postgresql.org/' },
-  { name: 'Vercel',      icon: 'https://api.iconify.design/simple-icons:vercel.svg',      url: 'https://vercel.com/' },
-  { name: 'Jest',        icon: 'https://api.iconify.design/simple-icons:jest.svg',        url: 'https://jestjs.io/' },
+  { name: 'JavaScript',  icon: 'https://api.iconify.design/simple-icons/javascript.svg', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+  { name: 'TypeScript',  icon: 'https://api.iconify.design/simple-icons/typescript.svg', url: 'https://www.typescriptlang.org/' },
+  { name: 'React',       icon: 'https://api.iconify.design/simple-icons/react.svg',       url: 'https://react.dev/' },
+  { name: 'Next.js',     icon: 'https://api.iconify.design/simple-icons/nextdotjs.svg',   url: 'https://nextjs.org/' },
+  { name: 'SCSS',        icon: 'https://api.iconify.design/simple-icons/sass.svg',        url: 'https://sass-lang.com/' },
+  { name: 'Figma',       icon: 'https://api.iconify.design/simple-icons/figma.svg',       url: 'https://www.figma.com/' },
+  { name: 'Node.js',     icon: 'https://api.iconify.design/simple-icons/nodedotjs.svg',   url: 'https://nodejs.org/' },
+  { name: 'PostgreSQL',  icon: 'https://api.iconify.design/simple-icons/postgresql.svg',  url: 'https://www.postgresql.org/' },
+  { name: 'Vercel',      icon: 'https://api.iconify.design/simple-icons/vercel.svg',      url: 'https://vercel.com/' },
+  { name: 'Jest',        icon: 'https://api.iconify.design/simple-icons/jest.svg',        url: 'https://jestjs.io/' },
 ];
 
 const capabilities = [

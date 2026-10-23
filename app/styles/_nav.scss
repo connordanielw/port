@@ -193,6 +193,34 @@ body[data-theme="dark"] .logo {
     opacity: 0.7;
 }
 
+.mobile-lang {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.mobile-lang-option {
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-lang-option:hover {
+    opacity: 0.7;
+}
+
+.mobile-lang-option.active {
+    font-weight: 600;
+    opacity: 0.6;
+}
+
 /* ANIMATION */
 @keyframes fadeSlideDown {
     from {

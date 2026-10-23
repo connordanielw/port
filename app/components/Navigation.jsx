@@ -87,7 +87,7 @@ export default function Navigation() {
           </Link>
             ))}
           </div>
-          <div className="lang-dropdown" ref={langRef}>
+          <div className="lang-dropdown desktop-only" ref={langRef}>
             <button
               type="button"
               className="lang-toggle"
@@ -148,6 +148,21 @@ export default function Navigation() {
             {label}
           </Link>
         ))}
+
+        <div className="mobile-lang" role="listbox" aria-label={t.toggleLanguage}>
+          {LANGUAGES.map((l) => (
+            <button
+              key={l}
+              type="button"
+              className={`mobile-lang-option${l === lang ? ' active' : ''}`}
+              role="option"
+              aria-selected={l === lang}
+              onClick={() => setLang(l)}
+            >
+              {l.toUpperCase()}
+            </button>
+          ))}
+        </div>
       </div>
     </nav>
   );

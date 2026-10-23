@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import anime from 'animejs';
+import { useLanguage } from '../components/LanguageContext.jsx';
 
 const skills = [
   { name: 'JavaScript',  icon: 'https://api.iconify.design/simple-icons/javascript.svg', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
@@ -17,23 +18,15 @@ const skills = [
   { name: 'Jest',        icon: 'https://api.iconify.design/simple-icons/jest.svg',        url: 'https://jestjs.io/' },
 ];
 
-const capabilities = [
-  {
-    title: 'Frontend Architecture',
-    text: 'I build structured, scalable interfaces with reusable components, clear page systems, and maintainable styling.',
-  },
-  {
-    title: 'Site Management',
-    text: 'I organize, update, and maintain live websites with attention to performance, consistency, content flow, and deployment.',
-  },
-  {
-    title: 'Editing & Polish',
-    text: 'I refine layouts, copy, motion, and visual hierarchy so pages feel intentional, clean, and easy to use.',
-  },
-];
-
 export default function AboutPage() {
+  const { t } = useLanguage();
   const pageRef = useRef(null);
+
+  const capabilities = [
+    { title: t.capFrontendTitle, text: t.capFrontendText },
+    { title: t.capSiteTitle, text: t.capSiteText },
+    { title: t.capEditTitle, text: t.capEditText },
+  ];
 
   useEffect(() => {
     if (!pageRef.current) return;
@@ -59,10 +52,10 @@ export default function AboutPage() {
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Back to main
+          {t.backToMain}
         </Link>
         <div className="about-kicker about-animate">
-          Web Developer / Frontend Systems / Site Editing
+          {t.infoKicker}
         </div>
 
         <section className="about-hero about-animate">
@@ -71,7 +64,7 @@ Connor D. Wotkowicz
           </h1>
 
           <p>
-          Frontend developer focused on component architecture, responsive design, and UX-driven site management.
+          {t.infoIntro}
           </p>
         </section>
 
@@ -87,27 +80,22 @@ Connor D. Wotkowicz
 
         <section className="about-split about-animate">
           <div>
-            <h2>What I bring to a project</h2>
+            <h2>{t.whatIBring}</h2>
           </div>
 
           <div className="about-copy-stack">
             <p>
-              I’m strongest where design, structure, and implementation meet:
-              turning loose ideas into pages that are clear, usable, and easy to
-              keep improving.
+              {t.bringPara1}
             </p>
 
             <p>
-              I work comfortably across React and Next.js projects, with an
-              emphasis on component organization, SCSS systems, responsive
-              layouts, deployment, and practical edits that make a site feel
-              finished.
+              {t.bringPara2}
             </p>
           </div>
         </section>
 
         <section className="tool-section about-animate">
-          <h2>Tools & Technologies</h2>
+          <h2>{t.toolsTitle}</h2>
 
           <div className="tool-grid">
             {skills.map((skill) => (
@@ -127,12 +115,11 @@ Connor D. Wotkowicz
 
         <section className="about-cta about-animate">
           <p>
-            Available for frontend development, portfolio builds, site cleanup,
-            and ongoing web management.
+            {t.availabilityCta}
           </p>
 
           <a href="/contact" className="about-button">
-            Contact
+            {t.contact}
           </a>
         </section>
       </section>

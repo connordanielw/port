@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import CodeTabs from "./components/CodeTabs.jsx";
 
 import SkillsGrid from '../app/components/SkillsGrid';
+import { useLanguage } from '../app/components/LanguageContext.jsx';
 
 import Link from 'next/link';
 
@@ -24,6 +25,7 @@ import Link from 'next/link';
 //     );
 
 export default function HomePage() {
+  const { t } = useLanguage();
   const heroRef = useRef(null);
   const ctaRef = useRef(null);
   const featuresRef = useRef(null);
@@ -32,19 +34,19 @@ export default function HomePage() {
   const projects = [
     {
       title: 'codaniel | studio',
-      subtitle: 'Design & Development · 2026',
+      subtitle: `${t.designDev} · 2026`,
       slug: 'artportfolio',
       image: '/images/newstudio.png',
     },
     {
       title: 'Cadence | music library',
-      subtitle: 'Full-Stack Development · 2025',
+      subtitle: `${t.fullStackDev} · 2025`,
       slug: 'cadence',
       image: '/images/cadence.png',
     },
     {
       title: 'DiscogMVP | ecommerce',
-      subtitle: 'Full-Stack Development · 2025',
+      subtitle: `${t.fullStackDev} · 2025`,
       slug: 'discogmvp',
       image: '/images/vin.png',
     },
@@ -85,7 +87,7 @@ export default function HomePage() {
           <div className="hero-visual"><HeroVisual /></div>
           <div className="hero-text">
             <h1 className="hero-title animate-on-load">Connor D. Wotkowicz</h1>
-            <p className="hero-description animate-slide-up"> Creative Developer | New York, NY</p>
+            <p className="hero-description animate-slide-up"> {t.heroSubtitle}</p>
           </div>
         </section>
 
@@ -98,7 +100,7 @@ export default function HomePage() {
  */}
 
         <section className="projects-section">
-          <h2 className="section-title animate-on-load" style={{ textAlign: 'center' }}>Recent web design work</h2>
+          <h2 className="section-title animate-on-load" style={{ textAlign: 'center' }}>{t.recentWork}</h2>
           <p className="section-subtitle" style={{ textAlign: 'center' }}>
             {/* Projects that combine creativity, technology and purpose.<br />Built with enthusiasm and precision. */}
           </p>

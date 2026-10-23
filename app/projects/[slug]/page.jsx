@@ -3,16 +3,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useLanguage } from '../../components/LanguageContext.jsx';
 
-const projects = [
+const projectMeta = [
   {
     slug: 'artportfolio',
     title: 'codaniel | studio',
     site: 'https://codanielw.com',
     video: '/videos/PortExample.mp4',
     year: '2026',
-    role: 'Design & Development',
-    description: 'A simple visual portfolio built to let the work breathe.',
+    roleKey: 'designDev',
     stack: ['Next.js', 'React', 'SCSS', 'Anime.js', 'React Three Fiber', 'Resend', 'Vercel'],
   },
   {
@@ -21,8 +21,7 @@ const projects = [
     site: 'https://cadence-mauve-ten.vercel.app',
     video: '/videos/cadence.mp4',
     year: '2025',
-    role: 'Full-Stack Development',
-    description: 'An AI-powered music library. Upload audio or sheet music, describe what it sounds like, and search your collection by feel.',
+    roleKey: 'fullStackDev',
     stack: ['Next.js', 'TypeScript', 'FastAPI', 'Python', 'PostgreSQL', 'pgvector', 'Claude API', 'Voyage AI', 'Vercel'],
   },
   {
@@ -31,8 +30,7 @@ const projects = [
     site: 'https://discog-mv-producer.vercel.app',
     video: '/videos/Discog.mp4',
     year: '2025',
-    role: 'Full-Stack Development',
-    description: 'A minimalist, music-focused e-commerce project',
+    roleKey: 'fullStackDev',
     stack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'JWT', 'Stripe', 'SCSS Modules'],
   },
 ];
@@ -61,8 +59,14 @@ const stackColors = {
 };
 
 export default function ProjectPage() {
+  const { t } = useLanguage();
   const { slug } = useParams();
   const router = useRouter();
+  const projects = projectMeta.map((p) => ({
+    ...p,
+    role: t[p.roleKey],
+    description: t.projectDescriptions[p.slug],
+  }));
   const project = projects.find((p) => p.slug === slug);
   const videoRef = useRef(null);
   const heroRef = useRef(null);
@@ -96,8 +100,8 @@ export default function ProjectPage() {
       <main className="pp-shell">
         <div className="pp-notfound">
           <span>404</span>
-          <p>Project not found.</p>
-          <Link href="/" className="pp-back">← Back to Base</Link>
+          <p>{t.projectNotFound}</p>
+          <Link href="/" className="pp-back">{t.backToBase}</Link>
         </div>
       </main>
     );
@@ -132,7 +136,7 @@ export default function ProjectPage() {
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Back to main
+          {t.backToMain}
         </button>
         <span className="pp-nav-index">
           {String(projectIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
@@ -180,7 +184,7 @@ export default function ProjectPage() {
             onClick={() => setLaunched(true)}
           >
             <span className="pp-cta__label">
-              {launched ? 'Opened ↗' : 'Visit Live Site'}
+              {launched ? t.openedLabel : t.visitLiveSite}
             </span>
             <span className="pp-cta__arrow">→</span>
           </a>
@@ -201,18 +205,18 @@ export default function ProjectPage() {
             />
             <div className="pp-preview-shine" />
           </div>
-          <p className="pp-preview-label">Live preview</p>
+          <p className="pp-preview-label">{t.livePreview}</p>
         </div>
       )}
 
       {/* ── Next / Prev ── */}
       <div className="pp-siblings" data-reveal>
         <Link href={`/projects/${prev.slug}`} className="pp-sibling pp-sibling--prev">
-          <span className="pp-sibling__dir">← Prev</span>
+          <span className="pp-sibling__dir">{t.prevLabel}</span>
           <span className="pp-sibling__title">{prev.title}</span>
         </Link>
         <Link href={`/projects/${next.slug}`} className="pp-sibling pp-sibling--next">
-          <span className="pp-sibling__dir">Next →</span>
+          <span className="pp-sibling__dir">{t.nextLabel}</span>
           <span className="pp-sibling__title">{next.title}</span>
         </Link>
       </div>

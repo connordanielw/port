@@ -4,8 +4,10 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import anime from 'animejs';
+import { useLanguage } from '../components/LanguageContext.jsx';
 
 export default function ContactPage() {
+  const { t } = useLanguage();
   const [fullName, setFullName] = useState('');
   const [email, setEmail]       = useState('');
   const [phone, setPhone]       = useState('');
@@ -53,7 +55,7 @@ export default function ContactPage() {
       });
 
       const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data?.error || 'Failed to send');
+      if (!res.ok) throw new Error(data?.error || t.sendFailed);
 
       // prepare success view
       setFirstName((fullName || '').trim().split(' ')[0] || 'there');
@@ -71,7 +73,7 @@ export default function ContactPage() {
       // setTimeout(() => router.push('/'), 2500);
     } catch (err) {
       console.error(err);
-      setErrorMsg(err?.message || 'Oops! Message failed. Please try again.');
+      setErrorMsg(err?.message || t.sendFailed);
       setStatus('error');
     }
   };
@@ -83,21 +85,21 @@ export default function ContactPage() {
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Back to main
+          {t.backToMain}
         </Link>
         <section className="contact-animate">
-          <h3>Contact</h3>
+          <h3>{t.contactTitle}</h3>
 
           {status === 'success' ? (
             <div className="contact-success" role="status" aria-live="polite">
               <div className="success-icon" aria-hidden>✓</div>
-              <h4 className="success-title">Message sent</h4>
+              <h4 className="success-title">{t.messageSent}</h4>
               <p className="success-copy">
-                Thank you, {firstName}! We will be in touch soon.
+                {t.thankYou(firstName)}
               </p>
               <div className="success-actions">
                 <button className="success-btn" onClick={() => router.push('/')}>
-                  Back to Home
+                  {t.backToHome}
                 </button>
               </div>
             </div>
@@ -109,7 +111,7 @@ export default function ContactPage() {
             >
               <input
                 type="text"
-                placeholder="Name"
+                placeholder={t.namePlaceholder}
                 ref={nameRef}
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
@@ -118,7 +120,7 @@ export default function ContactPage() {
 
               <input
                 type="email"
-                placeholder="Email"
+                placeholder={t.emailPlaceholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -126,20 +128,20 @@ export default function ContactPage() {
 
               <input
                 type="tel"
-                placeholder="Phone (optional)"
+                placeholder={t.phonePlaceholder}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
 
               <input
                 type="text"
-                placeholder="Subject (optional)"
+                placeholder={t.subjectPlaceholder}
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
               />
 
               <textarea
-                placeholder="What would you like to know?"
+                placeholder={t.messagePlaceholder}
                 value={message}
                 maxLength={255}
                 onChange={(e) => setMessage(e.target.value.slice(0, 255))}
@@ -149,7 +151,7 @@ export default function ContactPage() {
               <label>{message.length}/255</label>
 
               <button type="submit" disabled={status === 'sending'}>
-                {status === 'sending' ? 'Sending…' : 'Submit'}
+                {status === 'sending' ? t.sending : t.submit}
               </button>
 
               {status === 'error' && (

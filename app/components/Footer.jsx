@@ -1,10 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { useLanguage } from './LanguageContext.jsx';
 // import { useTheme} from './ThemeContext';
 
 
 export default function Footer() {
+  const { t } = useLanguage();
 
 // const { theme, toggleTheme } = useTheme();
 
@@ -18,7 +20,7 @@ export default function Footer() {
           </Link>
           {' | '} */}
           <Link href="/contact" className="footer-link">
-            Contact
+            {t.contact}
           </Link>
         </div>
         {/* <button

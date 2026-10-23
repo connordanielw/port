@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import { ThemeProvider } from '../app/components/ThemeContext.jsx';
 import './styles/App.scss';
 import ChatWidget from '../app//components/Chat';
+import { LanguageProvider } from '../app/components/LanguageContext.jsx';
 
 
 export const viewport = {
@@ -47,13 +48,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head />
      <body data-theme="dark">
-
+        <LanguageProvider>
           <ToastContainer />
           <Navigation />
           <main>{children}</main>
                 {/* <ChatWidget /> */}
           <Footer />
-
+        </LanguageProvider>
       </body>
     </html>
   );

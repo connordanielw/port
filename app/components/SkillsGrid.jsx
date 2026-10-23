@@ -1,7 +1,10 @@
 /* components/SkillsGrid.jsx */
 'use client';
 
+import { useLanguage } from './LanguageContext.jsx';
+
 export default function SkillsGrid() {
+  const { t } = useLanguage();
   const skills = [
     { name: 'JavaScript',   src: 'https://api.iconify.design/simple-icons/javascript.svg',     url: 'https://www.javascript.com/' },
     { name: 'Python',       src: 'https://api.iconify.design/simple-icons/python.svg',         url: 'https://www.python.org/' },
@@ -40,7 +43,7 @@ return (
   
   <section className="skills-section">
   
-    <h2 className="skills-title animate-on-load">Core Tech</h2>
+    <h2 className="skills-title animate-on-load">{t.coreTech}</h2>
 
     <ul className="skills-grid">
       {skills.map((skill) => (
